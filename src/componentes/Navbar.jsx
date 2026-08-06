@@ -1,48 +1,44 @@
-export default function Navbar(){
-    return(
-        <nav>
-        <div className="menu">
+import { Link } from 'react-router-dom'
 
+import './Navbar.css'
+export default function Navbar() {
+  return (
+    <nav>
+      <div className="menu">
+        <ul>
+          <li><Link to="/">INICIO</Link></li>
+          
+          <li>
+            <Link to="/nosotros">NOSOTROS</Link>
             <ul>
-                <li><a href="#inicio">INICIO</a></li>
-
-                <li>
-                    <a href="#Nosotros">NOSOTROS</a>
-                    <ul>
-                        <li><a href="#">Nuestra Historia</a></li>
-                        <li><a href="#">Misión y Visión</a></li>
-                        <li><a href="#">Nuestro Equipo</a></li>
-                        <li><a href="#">Galería de Fotos</a></li>
-                    </ul>
-                </li>
-            
-                <li>
-                    <a href="#perifericos">CARTAS</a>
-                    <ul>
-                        <li><a href="#">Entrada</a></li>
-                        <li><a href="#">Platos fuertes</a></li>
-                        <li><a href="#">Postres</a></li>
-                        <li><a href="#">Bebidas</a></li>
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#perifericos">RESERVAS</a>
-                    <ul><a href="#">Separa tu reserva</a></ul>
-                </li>
-
-                <li>
-                    <a href="#perifericos">DELIVERY</a>
-                    <ul>
-                        <li><a href="#">Zona de Cobertura</a></li>
-                        <li><a href="#">Formulario de pedidos</a></li>
-                        <li><a href="#">Método de pago</a></li>
-                        <li><a href="#">Seguimiento</a></li>
-                    </ul>
-                </li>
+              <li><Link to="/nosotros">Nuestra Historia</Link></li>
+              <li><Link to="/nosotros">Misión y Visión</Link></li>
+              <li><Link to="/nosotros">Nuestro Equipo</Link></li>
             </ul>
-              
-        </div>
+          </li>
+          
+          <li>
+             <Link to="/cartas">CARTAS</Link>
+             <ul>
+                 <li><Link to="/cartas">Entradas</Link></li>
+                 <li><Link to="/cartas">Platos Fuertes</Link></li>
+             </ul>
+          </li>
+          
+          <li><Link to="/reservas">RESERVAS</Link>
+            <ul>
+                <a href="#">Separa tu reserva</a>
+            </ul>
+          </li>
+          <li><Link to="/delivery">DELIVERY</Link>
+            <ul>
+              <li><Link to="/nosotros">Nuestra Historia</Link></li>
+              <li><Link to="/nosotros">Misión y Visión</Link></li>
+              <li><Link to="/nosotros">Nuestro Equipo</Link></li>
+            </ul>              
+          </li>
+        </ul>
+      </div>
     </nav>
-    )
+  )
 }
