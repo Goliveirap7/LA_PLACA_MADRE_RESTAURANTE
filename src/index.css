@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header img {
+    height: auto;
+    width: 1200px;
+    display: block;
+    margin: auto;
+}
+
+body {
+    margin: 0;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+
+
+
