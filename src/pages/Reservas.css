@@ -212,12 +212,14 @@
   background-color: #f8f8f8;
   border: 1px solid #b0b0b0;
   border-radius: 6px;
-  padding: 10px 16px;
+  padding: 10px 8px;
+  min-width: 95px; 
   font-size: 15px;
   color: #333333;
   cursor: pointer;
   transition: all 0.2s ease;
   font-family: inherit;
+  white-space: nowrap; 
 }
 
 

@@ -5,11 +5,31 @@ import React, { useState } from 'react';
 export default function Reservas() {
   const [paso, setPaso] = useState(1);
 
+const [inicioHorario, setInicioHorario] = useState(0);
+
+const listaHorarios = [
+    '10:00 am', '10:30 am', '11:00 am', '11:30 am', '12:00 pm',
+    '12:30 pm', '01:00 pm', '01:30 pm', '02:00 pm', '02:30 pm',
+    '03:00 pm', '03:30 pm', '04:00 pm', '04:30 pm', '05:00 pm',
+    '05:30 pm', '06:00 pm', '06:30 pm', '07:00 pm', '07:30 pm',
+    '08:00 pm', '08:30 pm', '09:00 pm', '09:30 pm', '10:00 pm'
+  ];
+
+const [inicioPersonas, setInicioPersonas] = useState(0);
+
+  const listaPersonas = [
+    '1', '2', '3', '4',
+    '5', '6', '7', '8',
+    '9', '10', '11', '12',
+    '13', '14', '15+'
+  ];
+
+
   const [formData, setFormData] = useState({
-    espacio: 'Terraza',
+    espacio: '',
     fecha: '',
-    hora: '11:00 am',
-    personas: '1',
+    hora: '',
+    personas: '', 
     nombre: '',
     tipoDoc: 'DNI',
     numDoc: '',
@@ -20,8 +40,31 @@ export default function Reservas() {
     detalleCelebracion: ''
   });
 
-  function handleChange(e) {
+function handleChange(e) {
     let { name, value } = e.target;
+
+    if (name === 'numDoc') {
+      const soloNumeros = value.replace(/\D/g, '');
+      if (soloNumeros.length <= 9) {
+        setFormData({
+          ...formData,
+          [name]: soloNumeros
+        });
+      }
+      return;
+    }
+
+    if (name === 'telefono') {
+      const soloNumeros = value.replace(/\D/g, '');
+      if (soloNumeros.length <= 11) {
+        setFormData({
+          ...formData,
+          [name]: soloNumeros
+        });
+      }
+      return;
+    }
+
     setFormData({
       ...formData,
       [name]: value
@@ -42,6 +85,15 @@ export default function Reservas() {
     });
   }
 
+function siguienteGrupoHorarios() {
+    if (inicioHorario + 5 < listaHorarios.length) {
+      setInicioHorario(inicioHorario + 5);
+    } else {
+      setInicioHorario(0);
+    }
+  }
+
+
   function seleccionarPersonas(cant) {
     setFormData({
       ...formData,
@@ -49,8 +101,23 @@ export default function Reservas() {
     });
   }
 
-  function irAlPaso2() {
-    setPaso(2);
+
+ function siguienteGrupoPersonas() {
+    if (inicioPersonas + 4 < listaPersonas.length) {
+      setInicioPersonas(inicioPersonas + 4);
+    } else {
+      setInicioPersonas(0);
+    }
+  } 
+
+
+ function irAlPaso2() {
+    if (!formData.fecha || !formData.hora || !formData.personas) {
+      alert('Por favor, selecciona una fecha, un horario y la cantidad de personas para continuar.');
+      return;
+    }
+    
+    setPaso(2); 
   }
 
   function regresarAlPaso1(e) {
@@ -165,26 +232,32 @@ export default function Reservas() {
             <div className="contenedor-horarios">
               <p className="subtitulo-horario">Selecciona un horario disponible:</p>
               <div className="grilla-horarios">
-                {['10:00 am', '10:30 am', '11:00 am', '11:30 am', '12:00 pm'].map((h) => (
-                  <button 
-                    key={h} 
-                    type="button" 
-                    className={`btn-hora ${formData.hora === h ? 'activo' : ''}`}
-                    onClick={() => seleccionarHora(h)}
-                  >
-                    {h}
-                  </button>
-                ))}
-                <button type="button" className="btn-siguiente-horario" title="Ver más horarios">
-                  <i className="fa-solid fa-chevron-right">+</i>
+              {listaHorarios.slice(inicioHorario, inicioHorario + 5).map((h) => (
+                <button 
+                  key={h} 
+                  type="button" 
+                  className={`btn-hora ${formData.hora === h ? 'activo' : ''}`}
+                  onClick={() => seleccionarHora(h)}
+                  translate="no"
+                >
+                  {h}
                 </button>
-              </div>
+              ))}
+              <button 
+                type="button" 
+                className="btn-siguiente-horario" 
+                title="Ver más horarios"
+                onClick={siguienteGrupoHorarios}
+              >
+                <i className="fa-solid fa-chevron-right">+</i>
+              </button>
+            </div>
             </div>
 
             <div className="contenedor-personas-continuar">
               <h2 className="titulo-seccion">Cantidad de personas:</h2>
               <div className="selector-personas">
-                {['1', '2', '3', '4'].map((p) => (
+                {listaPersonas.slice(inicioPersonas, inicioPersonas + 4).map((p) => (
                   <button 
                     key={p} 
                     type="button" 
@@ -194,7 +267,14 @@ export default function Reservas() {
                     {p}
                   </button>
                 ))}
-                <button type="button" className="btn-persona btn-mas" title="Más personas">+</button>
+                <button 
+                  type="button" 
+                  className="btn-persona btn-mas" 
+                  title="Más personas"
+                  onClick={siguienteGrupoPersonas}
+                >
+                  +
+                </button>
               </div>
 
               <button type="button" className="btn-continuar" onClick={irAlPaso2}>
@@ -235,130 +315,143 @@ export default function Reservas() {
             <h2 className="subtitulo-confirmacion">¡Estamos a un paso de terminar! Completa tus datos:</h2>
 
             <form onSubmit={handleSubmit}>
-              <div className="grupo-campo">
-                <label>Nombre Completo</label>
+            <div className="grupo-campo">
+              <label>Nombre Completo</label>
+              <input 
+                type="text" 
+                name="nombre"
+                value={formData.nombre}
+                onChange={handleChange}
+                placeholder="Escribe aquí" 
+                className="input-estilizado" 
+                required
+              />
+            </div>
+
+            <div className="grupo-campo">
+              <label>Coloca tu DNI, CE o pasaporte</label>
+              <div className="contenedor-input-combinado">
+                <select 
+                  name="tipoDoc" 
+                  value={formData.tipoDoc} 
+                  onChange={handleChange}
+                  className="select-documento"
+                >
+                  <option value="DNI">DNI</option>
+                  <option value="CE">CE</option>
+                  <option value="Pasaporte">Pasaporte</option>
+                </select>
+                <span className="separador"></span>
                 <input 
                   type="text" 
-                  name="nombre"
-                  value={formData.nombre}
+                  name="numDoc"
+                  value={formData.numDoc}
                   onChange={handleChange}
                   placeholder="Escribe aquí" 
-                  className="input-estilizado" 
+                  className="input-numero-documento" 
+                  minLength={7}
+                  maxLength={9}
+                  pattern="\d{7,9}"
+                  inputMode="numeric"
+                  title="El documento debe contener entre 7 y 9 dígitos"
                   required
                 />
               </div>
+            </div>
 
-              <div className="grupo-campo">
-                <label>Coloca tu DNI, CE o pasaporte</label>
-                <div className="contenedor-input-combinado">
-                  <select 
-                    name="tipoDoc" 
-                    value={formData.tipoDoc} 
-                    onChange={handleChange}
-                    className="select-documento"
-                  >
-                    <option value="DNI">DNI</option>
-                    <option value="CE">CE</option>
-                    <option value="Pasaporte">Pasaporte</option>
-                  </select>
-                  <span className="separador"></span>
-                  <input 
-                    type="text" 
-                    name="numDoc"
-                    value={formData.numDoc}
-                    onChange={handleChange}
-                    placeholder="Escribe aquí" 
-                    className="input-numero-documento" 
-                    required
-                  />
-                </div>
-              </div>
-
-              <div className="grupo-campo">
-                <label>Datos de contacto</label>
-                <div className="contenedor-input-combinado">
-                  <select 
-                    name="prefijoTel" 
-                    value={formData.prefijoTel} 
-                    onChange={handleChange}
-                    className="select-documento"
-                  >
-                    <option value="+51">🇵🇪 +51</option>
-                    <option value="+54">🇦🇷 +54</option>
-                    <option value="+591">🇧🇴 +591</option>
-                    <option value="+55">🇧🇷 +55</option>
-                    <option value="+56">🇨🇱 +56</option>
-                    <option value="+57">🇨🇴 +57</option>
-                    <option value="+593">🇪🇨 +593</option>
-                    <option value="+34">🇪🇸 +34</option>
-                    <option value="+1">🇺🇸 +1</option>
-                    <option value="+52">🇲🇽 +52</option>
-                    <option value="+595">🇵🇾 +595</option>
-                    <option value="+598">🇺🇾 +598</option>
-                    <option value="+58">🇻🇪 +58</option>
-                  </select>
-                  <span className="separador"></span>
-                  <input 
-                    type="tel" 
-                    name="telefono"
-                    value={formData.telefono}
-                    onChange={handleChange}
-                    placeholder="Escribe aquí" 
-                    className="input-numero-documento" 
-                    required
-                  />
-                </div>
-                <input 
-                  type="email" 
-                  name="email"
-                  value={formData.email}
+            <div className="grupo-campo">
+              <label>Datos de contacto</label>
+              <div className="contenedor-input-combinado">
+                <select 
+                  name="prefijoTel" 
+                  value={formData.prefijoTel} 
                   onChange={handleChange}
-                  placeholder="Correo electrónico" 
-                  className="input-estilizado margin-top-campo" 
+                  className="select-documento"
+                >
+                  <option value="+51">🇵🇪 +51</option>
+                  <option value="+54">🇦🇷 +54</option>
+                  <option value="+591">🇧🇴 +591</option>
+                  <option value="+55">🇧🇷 +55</option>
+                  <option value="+56">🇨🇱 +56</option>
+                  <option value="+57">🇨🇴 +57</option>
+                  <option value="+593">🇪🇨 +593</option>
+                  <option value="+34">🇪🇸 +34</option>
+                  <option value="+1">🇺🇸 +1</option>
+                  <option value="+52">🇲🇽 +52</option>
+                  <option value="+595">🇵🇾 +595</option>
+                  <option value="+598">🇺🇾 +598</option>
+                  <option value="+58">🇻🇪 +58</option>
+                </select>
+                <span className="separador"></span>
+                <input 
+                  type="tel" 
+                  name="telefono"
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  placeholder="Escribe aquí" 
+                  className="input-numero-documento" 
+                  minLength={7}
+                  maxLength={11}
+                  pattern="\d{7,11}"
+                  inputMode="numeric"
+                  title="El teléfono debe contener entre 7 y 11 dígitos"
                   required
                 />
               </div>
+              <input 
+                type="email" 
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Correo electrónico" 
+                className="input-estilizado margin-top-campo" 
+                required
+              />
+            </div>
 
-              <div className="grupo-campo">
-                <label>¿Celebras algo especial?</label>
-                <div className="opciones-radio">
-                  <label className="opcion-radio">
-                    <input 
-                      type="radio" 
-                      name="celebracion" 
-                      value="si" 
-                      checked={formData.celebracion === 'si'}
-                      onChange={handleChange}
-                    />
-                    <span>Sí</span>
-                  </label>
-                  <label className="opcion-radio">
-                    <input 
-                      type="radio" 
-                      name="celebracion" 
-                      value="no" 
-                      checked={formData.celebracion === 'no'}
-                      onChange={handleChange}
-                    />
-                    <span>No</span>
-                  </label>
-                </div>
-
-                {formData.celebracion === 'si' && (
-                  <textarea 
-                    name="detalleCelebracion"
-                    value={formData.detalleCelebracion}
+            <div className="grupo-campo">
+              <label>¿Celebras algo especial?</label>
+              <div className="opciones-radio">
+                <label className="opcion-radio">
+                  <input 
+                    type="radio" 
+                    name="celebracion" 
+                    value="si" 
+                    checked={formData.celebracion === 'si'}
                     onChange={handleChange}
-                    placeholder="¿Qué celebras?" 
-                    className="textarea-estilizado margin-top-campo"
-                  ></textarea>
-                )}
+                    required
+                  />
+                  <span>Sí</span>
+                </label>
+                <label className="opcion-radio">
+                  <input 
+                    type="radio" 
+                    name="celebracion" 
+                    value="no" 
+                    checked={formData.celebracion === 'no'}
+                    onChange={handleChange}
+                    required
+                  />
+                  <span>No</span>
+                </label>
               </div>
 
-              <button type="submit" className="btn-enviar">
-                <span className="punto-icono">•</span> Enviar
-              </button>
-            </form>
+              {formData.celebracion === 'si' && (
+                <textarea 
+                  name="detalleCelebracion"
+                  value={formData.detalleCelebracion}
+                  onChange={handleChange}
+                  placeholder="¿Qué celebras?" 
+                  className="textarea-estilizado margin-top-campo"
+                  required
+                ></textarea>
+              )}
+            </div>
+
+            <button type="submit" className="btn-enviar">
+              <span className="punto-icono">•</span> Enviar
+            </button>
+          </form>
           </div>
 
           <AsideContacto />
