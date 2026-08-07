@@ -176,7 +176,7 @@ export default function Reservas() {
                   </button>
                 ))}
                 <button type="button" className="btn-siguiente-horario" title="Ver más horarios">
-                  <i className="fa-solid fa-chevron-right"></i>
+                  <i className="fa-solid fa-chevron-right">+</i>
                 </button>
               </div>
             </div>

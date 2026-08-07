@@ -90,16 +90,15 @@
 }
 
 
-.tarjeta-espacio.seleccionada {
+.tarjeta-espacio.seleccionado {
   background-color: #6b1d2f; 
   color: #ffffff;   
   border-color: #0073c8;
   box-shadow: 0 6px 12px rgba(0, 115, 200, 0.3);
 }
 
-
-.tarjeta-espacio.seleccionada p,
-.tarjeta-espacio.seleccionada span {
+.tarjeta-espacio.seleccionado p,
+.tarjeta-espacio.seleccionado span {
   color: #ffffff;
   font-weight: 600;
 }
@@ -249,6 +248,13 @@
   color: #ffffff;
 }
 
+.btn-hora.activo {
+  background-color: #6b1d2f;
+  color: #ffffff;
+  border-color: #6b1d2f;
+  box-shadow: 0px 3px 8px rgba(107, 29, 47, 0.3);
+}
+
 
 .contenedor-personas-continuar {
   margin-top: 50px;
@@ -319,9 +325,11 @@
   transform: translateY(-1px);
 }
 
-.punto-decorativo {
-  font-size: 10px;
-  opacity: 0.8;
+.btn-persona.activo {
+  background-color: #6b1d2f;
+  color: #ffffff;
+  border-color: #6b1d2f;
+  box-shadow: 0px 3px 8px rgba(107, 29, 47, 0.3);
 }
 
 
@@ -576,11 +584,6 @@
 .btn-enviar:hover {
   background-color: #6b1d2f;
   transform: translateY(-1px);
-}
-
-.btn-enviar .punto-icono {
-  font-size: 18px;
-  line-height: 1;
 }
 
 
