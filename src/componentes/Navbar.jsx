@@ -32,9 +32,10 @@ export default function Navbar() {
           </li>
           <li><Link to="/delivery">DELIVERY</Link>
             <ul>
-              <li><Link to="/nosotros">Nuestra Historia</Link></li>
-              <li><Link to="/nosotros">Misión y Visión</Link></li>
-              <li><Link to="/nosotros">Nuestro Equipo</Link></li>
+              <li><Link to="/nosotros">Zona de Cobertura</Link></li>
+              <li><Link to="/nosotros">Formulario de Pedidos</Link></li>
+              <li><Link to="/nosotros">Método de Pago</Link></li>
+              <li><Link to="/nosotros">Confirmación y Segumiento</Link></li>
             </ul>              
           </li>
         </ul>
