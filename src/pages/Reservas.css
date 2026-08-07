@@ -1,0 +1,678 @@
+.titulo-reserva1 {
+    text-align: center;
+    color: #6b1d2f;
+    padding-top: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+}
+
+/* Barra vino completo */
+.pasos-bar {
+    background-color: #722f37;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 17px 0;
+    width: 100%;
+}
+
+/* Estilos de los pasos */
+.paso {
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+/* El paso donde está parado el usuario */
+.paso.activo {
+    opacity: 1;
+    font-weight: bold;
+    border-bottom: 2px solid white; /* Línea decorativa abajo */
+}
+
+.separador {
+    opacity: 0.5;
+}
+
+/* Contenedor principal pagina */
+.seccion-espacios{
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Lado izquierdo */
+.galeria-izquierdo h2 {
+  color: rgb(37, 41, 118);
+  font-size: 30px;
+  margin-bottom: 25px;
+  font-weight: normal;
+}
+
+/* Grilla para las imágenes */
+.grid-espacios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Estilo base de la tarjeta */
+.tarjeta-espacio {
+  border: 1px solid #e0e0e0;
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 12px;           /* Esquinas redondeadas como en la imagen */
+  cursor: pointer;
+  transition: all 0.3s ease;     /* Transición suave para el efecto de sombra */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-espacio img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 8px;            /* Redondeado interno de la imagen */
+}
+
+/* EFECTO 1: */
+.tarjeta-espacio:hover {
+  transform: translateY(-4px);    /* Se eleva levemente */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Sombra elegante */
+  border-color: #6b1d2f;          /* O el color primario de tu tema */
+}
+
+/* EFECTO 2: Tarjeta Seleccionada */
+.tarjeta-espacio.seleccionada {
+  background-color: #6b1d2f; 
+  color: #ffffff;                 /* Texto en blanco */
+  border-color: #0073c8;
+  box-shadow: 0 6px 12px rgba(0, 115, 200, 0.3);
+}
+
+/* Cambia el texto a blanco cuando la tarjeta está seleccionada */
+.tarjeta-espacio.seleccionada p,
+.tarjeta-espacio.seleccionada span {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Lado derecho (Aside de contacto) */
+.aside-contacto {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.aside-contacto h3 {
+  color: rgb(37, 41, 118);
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.aside-contacto p {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+.alerta {
+    position: relative;
+    background-color: #e9e9e9;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    padding: 14px;
+    text-align: center;
+    color: #666666;
+    font-size: 15px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.contenedor-reserva-fecha {
+  margin-top: 50px;
+}
+
+.titulo-seccion {
+  color: rgb(37, 41, 118);
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+/* Tarjeta contenedora blanca */
+.tarjeta-reserva {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px 30px;
+  max-width: 450px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e2e2;
+}
+
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.grupo-campo label {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555555;
+}
+
+/* Input nativo de fecha */
+.input-nativo {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #333333;
+  outline: none;
+  background-color: #fafafa;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-nativo:focus {
+  border-color: #6b1d2f;
+  box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.15);
+  background-color: #ffffff;
+}
+
+.contenedor-horarios {
+  margin-top: 25px;
+}
+
+.subtitulo-horario {
+  color: #666666;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* Fila contenedora de los botones */
+.grilla-horarios {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap; /* Se adapta si la pantalla es muy pequeña */
+}
+
+/* Estilo base de las cajitas de hora */
+.btn-hora {
+  background-color: #f8f8f8;
+  border: 1px solid #b0b0b0;
+  border-radius: 6px;
+  padding: 10px 16px;
+  font-size: 15px;
+  color: #333333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+/* Efecto hover */
+.btn-hora:hover {
+  border-color: #6b1d2f;
+  color: #6b1d2f;
+  background-color: #ffffff;
+}
+
+/* Botón 'Siguiente' para desplazar horarios */
+.btn-siguiente-horario {
+  background-color: #e2e2e2;
+  border: 1px solid #b0b0b0;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 15px;
+  color: #555555;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-siguiente-horario:hover {
+  background-color: #6b1d2f;
+  border-color: #6b1d2f;
+  color: #ffffff;
+}
+
+
+.contenedor-personas-continuar {
+  margin-top: 50px;
+}
+
+/* Selector circular de personas */
+.selector-personas {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.btn-persona {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%; /* Los hace círculos perfectos */
+  background-color: #ffffff;
+  border: none;
+  font-size: 18px;
+  color: #333333;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.btn-persona:hover {
+  background-color: #6b1d2f;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Estilo especial para el botón '+' */
+.btn-persona.btn-mas {
+  border: 1px solid #0073e6;
+  color: #0073e6;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.btn-persona.btn-mas:hover {
+  background-color: #0073e6;
+  color: #ffffff;
+}
+
+/* Botón de Continuar (Cápsula) */
+.btn-continuar {
+  background-color: #7b7b7b; /* Gris base (se puede cambiar a tono vino cuando esté habilitado) */
+  color: #ffffff;
+  border: none;
+  border-radius: 25px; /* Forma redondeada tipo cápsula */
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-continuar:hover {
+  background-color: #6b1d2f; /* Cambia al tono vino al pasar el cursor */
+  transform: translateY(-1px);
+}
+
+.punto-decorativo {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+
+
+.titulo-reserva2 {
+    text-align: center;
+    color: #6b1d2f;
+    padding-top: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+}
+
+/* Barra vino completo */
+.pasos-bar {
+    background-color: #722f37;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 0;
+    width: 100%;
+}
+
+/* Estilos de los pasos */
+.paso {
+    font-size: 16px;
+    opacity: 0.6;
+}
+
+/* El paso donde está parado el usuario */
+.paso.activo {
+    opacity: 1;
+    font-weight: bold;
+    border-bottom: 2px solid white; /* Línea decorativa abajo */
+}
+
+.separador {
+    opacity: 0.5;
+}
+
+/* Contenedor principal página */
+.seccion-formulario {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 40px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Columna Izquierda */
+.columna-izquierda {
+  display: flex;
+  flex-direction: column;
+  width: 60%;         /* Ocupa exactamente la mitad del contenedor */
+  max-width: 600px;   /* Tope máximo para que no se estire de más en pantallas gigantes */
+}
+
+/* Botón / Enlace Atrás */
+.btn-atras {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgb(37, 41, 118);
+  text-decoration: none;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.btn-atras .flecha {
+  font-size: 18px;
+}
+
+/* Subtítulo principal */
+.subtitulo-confirmacion {
+  color: #333333;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Bloque de cada campo (Ocupa el 100% de la columna izquierda) */
+.grupo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 35px;
+  width: 100%; /* Ahora se ajusta al ancho completo de la izquierda */
+}
+
+.grupo-campo label {
+  color: rgb(37, 41, 118);
+  font-size: 26px;
+  font-weight: normal;
+}
+
+.input-estilizado {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid #7b7b7b;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #333333;
+  background-color: transparent;
+  outline: none;
+}
+
+.input-estilizado::placeholder {
+  color: #8c8c8c;
+}
+
+/* Caja contenedora que simula el borde redondeado completo */
+.contenedor-input-combinado {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border: 1px solid #7b7b7b;
+  border-radius: 10px;
+  padding: 5px 12px;
+  background-color: transparent;
+}
+
+/* Selector desplegable (DNI, CE, Pasaporte o Códigos) */
+.select-documento {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: #333333;
+  padding: 8px 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Línea vertical separadora */
+.separador {
+  width: 1px;
+  height: 22px;
+  background-color: #333333;
+  margin: 0 10px;
+}
+
+/* Input para escribir el número */
+.input-numero-documento {
+  border: none;
+  background: transparent;
+  width: 100%;
+  padding: 8px 5px;
+  font-size: 15px;
+  color: #333333;
+  outline: none;
+}
+
+.input-numero-documento::placeholder {
+  color: #8c8c8c;
+}
+
+/* Espaciado superior para el campo de correo */
+.margin-top-campo {
+  margin-top: 12px;
+}
+
+/* Lado derecho (Aside de contacto) */
+.aside-contacto {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.aside-contacto h3 {
+  color: rgb(37, 41, 118);
+  font-size: 25px;
+  margin-bottom: 15px;
+  font-weight: normal;
+}
+
+.aside-contacto p {
+  margin-bottom: 10px;
+  font-size: 15px;
+  color: #333;
+}
+
+
+/* Opciones radio (Sí / No) */
+.opciones-radio {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 5px;
+}
+
+.opcion-radio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Apuntamos directamente a la etiqueta span del texto */
+.opcion-radio span {
+  font-size: 15px;
+  color: rgb(37, 41, 118);
+}
+
+.opcion-radio input[type="radio"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #6b1d2f; /* Tono vino para el check activo */
+}
+
+/* Textarea para "Qué celebras" */
+.textarea-estilizado {
+  width: 100%;
+  height: 120px;
+  padding: 14px 18px;
+  border: 1px solid #7b7b7b;
+  border-radius: 10px;
+  font-size: 15px;
+  color: #333333;
+  background-color: transparent;
+  outline: none;
+  resize: vertical; /* Permite redimensionar solo verticalmente si se desea */
+  font-family: inherit;
+}
+
+.textarea-estilizado::placeholder {
+  color: #8c8c8c;
+}
+
+/* Botón Enviar */
+.btn-enviar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: #7d7d7d; /* Gris de la imagen */
+  color: #ffffff;
+  border: none;
+  border-radius: 25px; /* Bordes redondeados píldora */
+  padding: 12px 35px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  width: fit-content;
+  margin-top: 10px;
+}
+
+.btn-enviar:hover {
+  background-color: #6b1d2f; /* Cambia al tono vino al pasar el cursor */
+  transform: translateY(-1px);
+}
+
+.btn-enviar .punto-icono {
+  font-size: 18px;
+  line-height: 1;
+}
+
+
+
+
+
+.titulo-reserva3 {
+    text-align: center;
+    color: #6b1d2f;
+    padding-top: 25px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 50px;
+}
+
+/* Contenedor Principal Centrado */
+.contenedor-confirmacion {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.mensaje-exito {
+  color: #4a4a4a;
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 35px;
+  padding: 0 10px;
+}
+
+/* Grilla de Datos (Clave - Valor) */
+/* Resumen de datos usando CSS Grid en pares automáticos */
+.resumen-datos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 520px;
+  margin: 30px auto 40px auto;
+  font-size: 18px;
+}
+
+.fila-dato {
+  display: grid;
+  /* 210px fija para las etiquetas, el resto para el valor */
+  grid-template-columns: 210px 1fr; 
+  gap: 25px; /* Espacio uniforme entre la etiqueta y la respuesta */
+  align-items: flex-start;
+  padding-top: 20px;
+}
+
+.etiqueta {
+  font-weight: 700;
+  color: #222222;
+  text-align: right; /* Alinea los títulos a la derecha hacia los dos puntos */
+}
+
+.valor {
+  color: #444444;
+  text-align: left; /* Alinea las respuestas a la izquierda */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor del botón centrado */
+.acciones-confirmacion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+/* Estilo del botón Ir a inicio */
+.btn-inicio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 28px;
+  background-color: #00c3e6; /* Color cian brillante de la referencia */
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.btn-inicio:hover {
+  background-color: #00b0d0;
+}
+
+.btn-inicio .punto-icono {
+  font-size: 16px;
+  line-height: 1;
+}
