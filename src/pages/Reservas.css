@@ -6,7 +6,7 @@
     font-size: 40px;
 }
 
-/* Barra vino completo */
+
 .pasos-bar {
     background-color: #722f37;
     color: white;
@@ -18,24 +18,24 @@
     width: 100%;
 }
 
-/* Estilos de los pasos */
+
 .paso {
     font-size: 16px;
     opacity: 0.6;
 }
 
-/* El paso donde está parado el usuario */
+
 .paso.activo {
     opacity: 1;
     font-weight: bold;
-    border-bottom: 2px solid white; /* Línea decorativa abajo */
+    border-bottom: 2px solid white; 
 }
 
 .separador {
     opacity: 0.5;
 }
 
-/* Contenedor principal pagina */
+
 .seccion-espacios{
     display: flex;
     justify-content: space-between;
@@ -46,7 +46,7 @@
     margin: 0 auto;
 }
 
-/* Lado izquierdo */
+
 .galeria-izquierdo h2 {
   color: rgb(37, 41, 118);
   font-size: 30px;
@@ -54,22 +54,22 @@
   font-weight: normal;
 }
 
-/* Grilla para las imágenes */
+
 .grid-espacios {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* Estilo base de la tarjeta */
+
 .tarjeta-espacio {
   border: 1px solid #e0e0e0;
   padding: 10px;
   text-align: center;
   background-color: #ffffff;
-  border-radius: 12px;           /* Esquinas redondeadas como en la imagen */
+  border-radius: 12px;           
   cursor: pointer;
-  transition: all 0.3s ease;     /* Transición suave para el efecto de sombra */
+  transition: all 0.3s ease;    
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
@@ -79,32 +79,32 @@
   object-fit: cover;
   display: block;
   margin-bottom: 10px;
-  border-radius: 8px;            /* Redondeado interno de la imagen */
+  border-radius: 8px;      
 }
 
-/* EFECTO 1: */
+
 .tarjeta-espacio:hover {
-  transform: translateY(-4px);    /* Se eleva levemente */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Sombra elegante */
-  border-color: #6b1d2f;          /* O el color primario de tu tema */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
+  border-color: #6b1d2f;         
 }
 
-/* EFECTO 2: Tarjeta Seleccionada */
+
 .tarjeta-espacio.seleccionada {
   background-color: #6b1d2f; 
-  color: #ffffff;                 /* Texto en blanco */
+  color: #ffffff;   
   border-color: #0073c8;
   box-shadow: 0 6px 12px rgba(0, 115, 200, 0.3);
 }
 
-/* Cambia el texto a blanco cuando la tarjeta está seleccionada */
+
 .tarjeta-espacio.seleccionada p,
 .tarjeta-espacio.seleccionada span {
   color: #ffffff;
   font-weight: 600;
 }
 
-/* Lado derecho (Aside de contacto) */
+
 .aside-contacto {
   width: 280px;
   display: flex;
@@ -149,7 +149,7 @@
   font-weight: normal;
 }
 
-/* Tarjeta contenedora blanca */
+
 .tarjeta-reserva {
   background-color: #ffffff;
   border-radius: 12px;
@@ -171,7 +171,7 @@
   color: #555555;
 }
 
-/* Input nativo de fecha */
+
 .input-nativo {
   width: 100%;
   padding: 12px 15px;
@@ -200,15 +200,15 @@
   margin-bottom: 12px;
 }
 
-/* Fila contenedora de los botones */
+
 .grilla-horarios {
   display: flex;
   align-items: center;
   gap: 10px;
-  flex-wrap: wrap; /* Se adapta si la pantalla es muy pequeña */
+  flex-wrap: wrap; 
 }
 
-/* Estilo base de las cajitas de hora */
+
 .btn-hora {
   background-color: #f8f8f8;
   border: 1px solid #b0b0b0;
@@ -221,14 +221,14 @@
   font-family: inherit;
 }
 
-/* Efecto hover */
+
 .btn-hora:hover {
   border-color: #6b1d2f;
   color: #6b1d2f;
   background-color: #ffffff;
 }
 
-/* Botón 'Siguiente' para desplazar horarios */
+
 .btn-siguiente-horario {
   background-color: #e2e2e2;
   border: 1px solid #b0b0b0;
@@ -254,7 +254,7 @@
   margin-top: 50px;
 }
 
-/* Selector circular de personas */
+
 .selector-personas {
   display: flex;
   align-items: center;
@@ -265,7 +265,7 @@
 .btn-persona {
   width: 45px;
   height: 45px;
-  border-radius: 50%; /* Los hace círculos perfectos */
+  border-radius: 50%; 
   background-color: #ffffff;
   border: none;
   font-size: 18px;
@@ -285,7 +285,7 @@
   transform: translateY(-2px);
 }
 
-/* Estilo especial para el botón '+' */
+
 .btn-persona.btn-mas {
   border: 1px solid #0073e6;
   color: #0073e6;
@@ -298,12 +298,12 @@
   color: #ffffff;
 }
 
-/* Botón de Continuar (Cápsula) */
+
 .btn-continuar {
-  background-color: #7b7b7b; /* Gris base (se puede cambiar a tono vino cuando esté habilitado) */
+  background-color: #7b7b7b; 
   color: #ffffff;
   border: none;
-  border-radius: 25px; /* Forma redondeada tipo cápsula */
+  border-radius: 25px; 
   padding: 12px 28px;
   font-size: 16px;
   font-weight: 500;
@@ -315,7 +315,7 @@
 }
 
 .btn-continuar:hover {
-  background-color: #6b1d2f; /* Cambia al tono vino al pasar el cursor */
+  background-color: #6b1d2f; 
   transform: translateY(-1px);
 }
 
@@ -334,7 +334,7 @@
     font-size: 40px;
 }
 
-/* Barra vino completo */
+
 .pasos-bar {
     background-color: #722f37;
     color: white;
@@ -346,24 +346,24 @@
     width: 100%;
 }
 
-/* Estilos de los pasos */
+
 .paso {
     font-size: 16px;
     opacity: 0.6;
 }
 
-/* El paso donde está parado el usuario */
+
 .paso.activo {
     opacity: 1;
     font-weight: bold;
-    border-bottom: 2px solid white; /* Línea decorativa abajo */
+    border-bottom: 2px solid white;
 }
 
 .separador {
     opacity: 0.5;
 }
 
-/* Contenedor principal página */
+
 .seccion-formulario {
   display: flex;
   justify-content: space-between;
@@ -374,15 +374,15 @@
   margin: 0 auto;
 }
 
-/* Columna Izquierda */
+
 .columna-izquierda {
   display: flex;
   flex-direction: column;
-  width: 60%;         /* Ocupa exactamente la mitad del contenedor */
-  max-width: 600px;   /* Tope máximo para que no se estire de más en pantallas gigantes */
+  width: 60%;      
+  max-width: 600px;   
 }
 
-/* Botón / Enlace Atrás */
+
 .btn-atras {
   display: inline-flex;
   align-items: center;
@@ -398,7 +398,7 @@
   font-size: 18px;
 }
 
-/* Subtítulo principal */
+
 .subtitulo-confirmacion {
   color: #333333;
   font-size: 20px;
@@ -406,13 +406,13 @@
   margin-bottom: 30px;
 }
 
-/* Bloque de cada campo (Ocupa el 100% de la columna izquierda) */
+
 .grupo-campo {
   display: flex;
   flex-direction: column;
   gap: 8px;
   margin-bottom: 35px;
-  width: 100%; /* Ahora se ajusta al ancho completo de la izquierda */
+  width: 100%;
 }
 
 .grupo-campo label {
@@ -436,7 +436,7 @@
   color: #8c8c8c;
 }
 
-/* Caja contenedora que simula el borde redondeado completo */
+
 .contenedor-input-combinado {
   display: flex;
   align-items: center;
@@ -447,7 +447,7 @@
   background-color: transparent;
 }
 
-/* Selector desplegable (DNI, CE, Pasaporte o Códigos) */
+
 .select-documento {
   border: none;
   background: transparent;
@@ -458,7 +458,7 @@
   outline: none;
 }
 
-/* Línea vertical separadora */
+
 .separador {
   width: 1px;
   height: 22px;
@@ -466,7 +466,7 @@
   margin: 0 10px;
 }
 
-/* Input para escribir el número */
+
 .input-numero-documento {
   border: none;
   background: transparent;
@@ -481,12 +481,12 @@
   color: #8c8c8c;
 }
 
-/* Espaciado superior para el campo de correo */
+
 .margin-top-campo {
   margin-top: 12px;
 }
 
-/* Lado derecho (Aside de contacto) */
+
 .aside-contacto {
   width: 280px;
   display: flex;
@@ -508,7 +508,7 @@
 }
 
 
-/* Opciones radio (Sí / No) */
+
 .opciones-radio {
   display: flex;
   align-items: center;
@@ -523,7 +523,7 @@
   cursor: pointer;
 }
 
-/* Apuntamos directamente a la etiqueta span del texto */
+
 .opcion-radio span {
   font-size: 15px;
   color: rgb(37, 41, 118);
@@ -533,10 +533,10 @@
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #6b1d2f; /* Tono vino para el check activo */
+  accent-color: #6b1d2f;
 }
 
-/* Textarea para "Qué celebras" */
+
 .textarea-estilizado {
   width: 100%;
   height: 120px;
@@ -547,7 +547,7 @@
   color: #333333;
   background-color: transparent;
   outline: none;
-  resize: vertical; /* Permite redimensionar solo verticalmente si se desea */
+  resize: vertical;
   font-family: inherit;
 }
 
@@ -555,16 +555,16 @@
   color: #8c8c8c;
 }
 
-/* Botón Enviar */
+
 .btn-enviar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  background-color: #7d7d7d; /* Gris de la imagen */
+  background-color: #7d7d7d;
   color: #ffffff;
   border: none;
-  border-radius: 25px; /* Bordes redondeados píldora */
+  border-radius: 25px;
   padding: 12px 35px;
   font-size: 16px;
   font-weight: 500;
@@ -574,7 +574,7 @@
 }
 
 .btn-enviar:hover {
-  background-color: #6b1d2f; /* Cambia al tono vino al pasar el cursor */
+  background-color: #6b1d2f;
   transform: translateY(-1px);
 }
 
@@ -595,7 +595,7 @@
     font-size: 50px;
 }
 
-/* Contenedor Principal Centrado */
+
 .contenedor-confirmacion {
   max-width: 650px;
   margin: 40px auto;
@@ -611,8 +611,7 @@
   padding: 0 10px;
 }
 
-/* Grilla de Datos (Clave - Valor) */
-/* Resumen de datos usando CSS Grid en pares automáticos */
+
 .resumen-datos {
   display: flex;
   flex-direction: column;
@@ -624,9 +623,8 @@
 
 .fila-dato {
   display: grid;
-  /* 210px fija para las etiquetas, el resto para el valor */
   grid-template-columns: 210px 1fr; 
-  gap: 25px; /* Espacio uniforme entre la etiqueta y la respuesta */
+  gap: 25px;
   align-items: flex-start;
   padding-top: 20px;
 }
@@ -634,17 +632,17 @@
 .etiqueta {
   font-weight: 700;
   color: #222222;
-  text-align: right; /* Alinea los títulos a la derecha hacia los dos puntos */
+  text-align: right;
 }
 
 .valor {
   color: #444444;
-  text-align: left; /* Alinea las respuestas a la izquierda */
+  text-align: left;
   display: flex;
   flex-direction: column;
 }
 
-/* Contenedor del botón centrado */
+
 .acciones-confirmacion {
   display: flex;
   justify-content: center;
@@ -652,14 +650,14 @@
   margin-top: 30px;
 }
 
-/* Estilo del botón Ir a inicio */
+
 .btn-inicio {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   padding: 10px 28px;
-  background-color: #00c3e6; /* Color cian brillante de la referencia */
+  background-color: #00c3e6;
   color: #ffffff;
   border-radius: 20px;
   font-size: 14px;

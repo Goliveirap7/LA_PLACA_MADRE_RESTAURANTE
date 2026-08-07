@@ -3,10 +3,8 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 
 export default function Reservas() {
-  // Estado para controlar el paso actual (1, 2 o 3)
   const [paso, setPaso] = useState(1);
 
-  // Estado para capturar los datos ingresados en el formulario
   const [formData, setFormData] = useState({
     espacio: 'Terraza',
     fecha: '',
@@ -22,7 +20,6 @@ export default function Reservas() {
     detalleCelebracion: ''
   });
 
-  // Función para actualizar campos individuales del estado
   function handleChange(e) {
     let { name, value } = e.target;
     setFormData({
@@ -31,7 +28,6 @@ export default function Reservas() {
     });
   }
 
-  // Selección rápida de espacio
   function seleccionarEspacio(nombreEspacio) {
     setFormData({
       ...formData,
@@ -39,7 +35,6 @@ export default function Reservas() {
     });
   }
 
-  // Selección rápida de hora
   function seleccionarHora(horaSeleccionada) {
     setFormData({
       ...formData,
@@ -47,7 +42,6 @@ export default function Reservas() {
     });
   }
 
-  // Selección rápida de personas
   function seleccionarPersonas(cant) {
     setFormData({
       ...formData,
@@ -55,24 +49,22 @@ export default function Reservas() {
     });
   }
 
-  // Avanzar al paso 2
   function irAlPaso2() {
     setPaso(2);
   }
 
-  // Regresar al paso 1
   function regresarAlPaso1(e) {
     e.preventDefault();
     setPaso(1);
   }
 
-  // Enviar formulario y pasar al resumen (Paso 3)
+
   function handleSubmit(e) {
     e.preventDefault();
     setPaso(3);
   }
 
-  // Componente reutilizable del Sidebar de Contacto
+
   function AsideContacto() {
     return (
       <aside className="aside-contacto">
@@ -90,7 +82,7 @@ export default function Reservas() {
     );
   }
 
-  // RENDERIZADO DEL PASO 1
+
   if (paso === 1) {
     return (
       <main>
@@ -217,7 +209,7 @@ export default function Reservas() {
     );
   }
 
-  // RENDERIZADO DEL PASO 2
+
   if (paso === 2) {
     return (
       <main>
@@ -375,7 +367,7 @@ export default function Reservas() {
     );
   }
 
-  // RENDERIZADO DEL PASO 3 (CONFIRMACIÓN)
+
   return (
     <main>
       <h1 className="titulo-reserva3">¡Reserva realizada!</h1>
