@@ -132,22 +132,28 @@ function siguienteGrupoHorarios() {
   }
 
 
-  function AsideContacto() {
-    return (
-      <aside className="aside-contacto">
-        <div className="bloque-contacto">
-          <h3>Datos de Contacto:</h3>
-          <p>✉ restaurantelaplacamadre.com</p>
-          <p>📞 (+51) 987654321</p>
-        </div>
-        <div className="bloque-redes">
-          <h3>Redes Sociales:</h3>
-          <p><i className="fab fa-facebook"></i> La Placa Madre</p>
-          <p><i className="fab fa-instagram"></i> LaPlacaMadrePeru</p>
-        </div>
-      </aside>
-    );
-  }
+function AsideContacto() {
+  return (
+    <aside className="aside-contacto">
+      <div className="bloque-contacto">
+        <h3>Datos de Contacto:</h3>
+        <p>✉ restaurantelaplacamadre.com</p>
+        <p>📞 (+51) 987654321</p>
+      </div>
+      <div className="bloque-redes">
+        <h3>Redes Sociales:</h3>
+        <p>
+          <img src="/FACEBOOK.png" alt="Facebook" className="icono-redes" /> 
+          La Placa Madre
+        </p>
+        <p>
+          <img src="/INSTAGRAM.png" alt="Instagram" className="icono-redes" /> 
+          LaPlacaMadrePeru
+        </p>
+      </div>
+    </aside>
+  );
+}
 
 
   if (paso === 1) {
