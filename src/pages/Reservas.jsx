@@ -111,14 +111,14 @@ function siguienteGrupoHorarios() {
   } 
 
 
- function irAlPaso2() {
-    if (!formData.fecha || !formData.hora || !formData.personas) {
-      alert('Por favor, selecciona una fecha, un horario y la cantidad de personas para continuar.');
-      return;
-    }
-    
-    setPaso(2); 
+function irAlPaso2() {
+  if (!formData.fecha || !formData.hora || !formData.personas || !formData.espacio) {
+    alert('Por favor, completa la fecha, hora, personas y el espacio deseado para continuar.');
+    return;
   }
+  
+  setPaso(2); 
+}
 
   function regresarAlPaso1(e) {
     e.preventDefault();
