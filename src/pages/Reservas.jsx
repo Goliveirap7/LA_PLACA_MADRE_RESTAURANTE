@@ -152,6 +152,11 @@ function siguienteGrupoHorarios() {
 
   if (paso === 1) {
     return (
+      <>
+        <header className="header-restaurante">
+          <img src="/Logo_Restaurante-removebg-preview.png" alt="Logo del Restaurante" />
+        </header>
+
       <main>
         <h1 className="titulo-reserva1">Realiza tu Reserva</h1>
         <br />
@@ -286,12 +291,18 @@ function siguienteGrupoHorarios() {
           <AsideContacto />
         </div>
       </main>
+      </>
     );
   }
 
 
   if (paso === 2) {
     return (
+      <>
+      <header className="header-restaurante">
+          <img src="/Logo_Restaurante-removebg-preview.png" alt="Logo del Restaurante" />
+      </header>
+      
       <main>
         <h1 className="titulo-reserva2">Realiza tu Reserva</h1>
         <br />
@@ -457,6 +468,7 @@ function siguienteGrupoHorarios() {
           <AsideContacto />
         </div>
       </main>
+      </>
     );
   }
 
