@@ -88,7 +88,6 @@ export default function Cartas() {
         <img src="/image_af11eb5f.png" alt="Banner de la tienda" />
       </header>
     <main>
-      {/* Sección 1: Ceviche */}
       <section>
         <p className="brow">{seccionCeviche.descripcion}</p>
         <div className="container">
@@ -108,8 +107,6 @@ export default function Cartas() {
           ))}
         </div>
       </section>
-
-      {/* Sección 2: Causa Rellena */}
       <section>
         <p className="brow">{seccionCausa.descripcion}</p>
         <div className="container1">
@@ -130,7 +127,6 @@ export default function Cartas() {
         </div>
       </section>
 
-      {/* Sección 3: Tiradito */}
       <section>
         <p className="brow">{seccionTiradito.descripcion}</p>
         <div className="container2">

@@ -7,7 +7,6 @@ main {
     background-color: white;
     text-align: center;
 }
-
 .brow {
     text-align: center;
     font-size: 18px;
@@ -20,8 +19,6 @@ main {
     border: 1px solid rgba(0, 0, 0, 0.08);
     font-weight: bold;
 }
-
-/* Agrupamos estilos de todos los contenedores de tarjetas */
 .container,
 .container1,
 .container2 {
@@ -29,17 +26,15 @@ main {
     max-width: 1300px;
     background-color: rgb(255, 255, 255);
     display: flex; 
-    flex-wrap: wrap; /* Permite adaptarse a pantallas pequeñas */
+    flex-wrap: wrap; 
     flex-direction: row;   
     justify-content: center;
-    gap: 30px; /* Espaciado uniforme entre tarjetas */
+    gap: 30px;
     align-items: stretch;
     margin: 20px auto;
     padding: 20px;
     box-sizing: border-box;
 }
-
-/* Estilo unificado para las tarjetas */
 .carta {
     width: 380px;
     background-color: #111;
@@ -48,17 +43,15 @@ main {
     border: 2px solid #333;
     box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 20px -5px;
     padding-bottom: 20px;
-    overflow: hidden; /* Evita que la imagen se salga de los bordes redondeados */
+    overflow: hidden; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
-
-/* Estilo para TODAS las imágenes dentro de una carta */
 .carta img {
     width: 100%;
     height: 250px;
-    object-fit: cover; /* Recorta la imagen proporcionalmente sin deformarla ni desbordarla */
+    object-fit: cover; 
     border-radius: 23px 23px 0 0;
 }
 
