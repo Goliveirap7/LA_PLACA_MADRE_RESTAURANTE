@@ -21,7 +21,7 @@
   background-image: url('/banner-reserva.png');
   background-size: cover;
   background-position: center;
-  opacity: 0.8;
+  opacity: 0.5;
   z-index: 1;
 }
 
@@ -62,7 +62,6 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
     opacity: 0.6;
 }
 
-
 .paso.activo {
     opacity: 1;
     font-weight: bold;
@@ -72,7 +71,6 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 .separador {
     opacity: 0.5;
 }
-
 
 .seccion-espacios{
     display: flex;
