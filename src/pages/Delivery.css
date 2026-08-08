@@ -29,6 +29,9 @@ content: "";
     z-index: 1;
 }
 
+.delivery-titulo-seccion{
+   color: #6d1935; 
+}
 .alerta-error {
   background: #fdecea;
   color: #b3413b;

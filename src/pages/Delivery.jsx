@@ -4,18 +4,18 @@ import "./Delivery.css";
 export default function Delivery() {
     const [pagina, setPagina] = useState(1);
 
-    // Paso 1: cobertura
+   
     const [direccion, setDireccion] = useState("");
-    const [zonaValida, setZonaValida] = useState(null); // null | true | false
+    const [zonaValida, setZonaValida] = useState(null);
 
-    // Paso 1: formulario
+    
     const [nombre, setNombre] = useState("");
     const [telefono, setTelefono] = useState("");
     const [direccionEntrega, setDireccionEntrega] = useState("");
     const [referencia, setReferencia] = useState("");
     const [observaciones, setObservaciones] = useState("");
 
-    // Paso 2: pago
+   
     const [pago, setPago] = useState("Efectivo");
     const [confirmado, setConfirmado] = useState(false);
 
@@ -55,7 +55,6 @@ export default function Delivery() {
       <header className="header_delivery">
             </header>
 
-            {/* 2. Main content */}
             <main className="delivery-main">
                 <section className="delivery">
                     <div className="delivery-titulo-seccion">
@@ -67,7 +66,7 @@ export default function Delivery() {
 
                 {pagina === 1 && (
                     <div className="pagina">
-                        {/* 1. ZONA DE COBERTURA */}
+
                         <div className="caja">
                             <h2>1. Zona de cobertura</h2>
                             <p className="subtitulo">¿A qué dirección quieres que llevemos tu pedido?</p>
@@ -94,7 +93,6 @@ export default function Delivery() {
                             <img className="mapa" src="/MapaCobertura.png" alt="Mapa de zona de cobertura" />
                         </div>
 
-                        {/* 2. FORMULARIO DE PEDIDO */}
                         <div className="caja">
                             <h2>2. Formulario de pedido</h2>
 
@@ -106,10 +104,10 @@ export default function Delivery() {
                                 <div>
                                 <label>Teléfono / WhatsApp</label>
                                 <input
-                                  type="text" // Usamos text para evitar los problemas de type="number"
+                                  type="text"
                                   placeholder="Ej. 912 345 678"
                                   value={telefono}
-                                  maxLength={12} // Límite nativo del navegador
+                                  maxLength={12} 
                                   onChange={(e) => {
                                 const soloDigitos = e.target.value.replace(/[^0-9]/g, '');
       
