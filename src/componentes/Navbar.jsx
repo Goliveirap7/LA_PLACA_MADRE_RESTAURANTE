@@ -32,10 +32,8 @@ export default function Navbar() {
           </li>
           <li><Link to="/delivery">DELIVERY</Link>
             <ul>
-              <li><Link to="/nosotros">Zona de Cobertura</Link></li>
-              <li><Link to="/nosotros">Formulario de Pedidos</Link></li>
-              <li><Link to="/nosotros">Método de Pago</Link></li>
-              <li><Link to="/nosotros">Confirmación y Segumiento</Link></li>
+              <li><Link to="/delivery">Zona de Cobertura</Link></li>
+              <li><Link to="/delivery">Formulario de Pedidos</Link></li>
             </ul>              
           </li>
         </ul>
