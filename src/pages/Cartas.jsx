@@ -84,8 +84,8 @@ export default function Cartas() {
 
   return (
   <>
-      <header>
-        <img src="/image_af11eb5f.png" alt="Banner de la tienda" />
+      <header className='header-cartas'>
+        <img src="/logo_con_texto.png" alt="banner_restaurante" />
       </header>
     <main>
       <section>

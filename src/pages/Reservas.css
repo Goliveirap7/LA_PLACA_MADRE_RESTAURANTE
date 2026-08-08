@@ -28,7 +28,7 @@
 .header-restaurante img {
   position: relative;
   z-index: 2;
-  max-height: 150px;
+  max-height: 200px;
   width: auto;
   object-fit: contain;
   margin: 0 auto;

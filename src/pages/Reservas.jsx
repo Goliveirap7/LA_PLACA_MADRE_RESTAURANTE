@@ -160,7 +160,7 @@ function AsideContacto() {
     return (
       <>
         <header className="header-restaurante">
-          <img src="/Logo_Restaurante-removebg-preview.png" alt="Logo del Restaurante" />
+          <img src="/logo_con_texto.png" alt="Logo del Restaurante" />
         </header>
 
       <main>

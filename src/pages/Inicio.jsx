@@ -2,8 +2,8 @@ import './Inicio.css'
 export default function Inicio() {
   return (
     <>
-    <header>
-        <img src="/banner_inicio.png" alt="Banner de la tienda"/>
+    <header className='header-inicio'>
+        <img src="/logo_con_texto.png" alt="Banner de la tienda"/>
     </header>
 
     <main>
