@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 
 import './Navbar.css'
 export default function Navbar() {
@@ -6,34 +6,61 @@ export default function Navbar() {
     <nav>
       <div className="menu">
         <ul>
-          <li><Link to="/">INICIO</Link></li>
+          <li>
+          <NavLink 
+            to="/" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            INICIO
+          </NavLink>
+        </li>
           
           <li>
-            <Link to="/nosotros">NOSOTROS</Link>
+            <NavLink 
+            to="/nosotros" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            NOSOTROS
+          </NavLink>
             <ul>
-              <li><Link to="/nosotros">Nuestra Historia</Link></li>
-              <li><Link to="/nosotros">Misión y Visión</Link></li>
-              <li><Link to="/nosotros">Nuestro Equipo</Link></li>
+              <li><NavLink to="/nosotros">Nuestra Historia</NavLink></li>
+              <li><NavLink to="/nosotros">Misión y Visión</NavLink></li>
+              <li><NavLink to="/nosotros">Nuestro Equipo</NavLink></li>
             </ul>
           </li>
           
           <li>
-             <Link to="/cartas">CARTAS</Link>
+             <NavLink 
+            to="/cartas" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            CARTAS
+          </NavLink>
              <ul>
                  <li><Link to="/cartas">Entradas</Link></li>
                  <li><Link to="/cartas">Platos Fuertes</Link></li>
              </ul>
           </li>
           
-          <li><Link to="/reservas">RESERVAS</Link>
+          <li><NavLink 
+            to="/reservas" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            RESERVAS
+          </NavLink>
             <ul>
                 <a href="#">Separa tu reserva</a>
             </ul>
           </li>
-          <li><Link to="/delivery">DELIVERY</Link>
+          <li><NavLink 
+            to="/delivery" 
+            className={({ isActive }) => (isActive ? 'active' : '')}
+          >
+            DELIVERY
+          </NavLink>
             <ul>
-              <li><Link to="/delivery">Zona de Cobertura</Link></li>
-              <li><Link to="/delivery">Formulario de Pedidos</Link></li>
+              <li><NavLink to="/delivery">Zona de Cobertura</NavLink></li>
+              <li><NavLink to="/delivery">Formulario de Pedidos</NavLink></li>
             </ul>              
           </li>
         </ul>

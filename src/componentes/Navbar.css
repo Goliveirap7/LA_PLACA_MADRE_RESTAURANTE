@@ -1,9 +1,9 @@
 .menu {
-    background: #722f37;
+    background-color: #0f0804f2;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 20px;
+    padding: 15px 0;
     height: 60px;
     position: fixed;
     top: 0;
@@ -14,7 +14,8 @@
 
 .menu ul {
     margin-right: 50px;
-     list-style: none;
+    gap: 20px;
+    list-style: none;
     display: flex;
 }
 
@@ -23,7 +24,7 @@
     width: auto;
 }
 
-.menu>ul>li {
+.menu li {
     position: relative;
 }
 
@@ -31,14 +32,18 @@
     display: block;
     padding: 15px;
     text-decoration: none;
-    color: white;
+    color: #eeeeee73;
     font-size: 15px;
     font-weight: normal;
+    transition: all 0.3s ease;
 }
 
-.menu a:hover {
-    background: #333;
+.menu a:hover,
+.menu a.active {
+    background: transparent;
     font-weight: bold;
+    color: #ffffff;
+    text-shadow: 0 0 8px #ffffff99; 
 }
 
 .menu ul ul {
@@ -46,12 +51,22 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: #444;
+    background: #e4e4e4f2;
+    opacity: 90%;
     min-width: 200px;
 }
 
-.menu ul ul li {
-    width: 100%
+.menu ul ul a{
+    color: #0f0804f2;
+
+}
+.menu ul ul a:hover{
+    color: #381e0ff2;
+
+}
+
+.menu li {
+    width: 100%;
 }
 
 .menu li:hover>ul {
