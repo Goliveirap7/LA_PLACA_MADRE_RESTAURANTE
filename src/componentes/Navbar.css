@@ -1,5 +1,5 @@
 .menu {
-    background-color: #0f0804f2;
+    background-color: #1f1f1ff2; /*#cbcbccf2 */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -61,7 +61,7 @@
 
 }
 .menu ul ul a:hover{
-    color: #381e0ff2;
+    color: #0f0804f2;
 
 }
 

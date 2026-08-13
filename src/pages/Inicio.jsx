@@ -1,11 +1,92 @@
-import { useEffect, useRef} from 'react'
+import { useEffect, useRef, useState} from 'react'
 import { Link } from 'react-router-dom'
 import './Inicio.css'
 export default function Inicio() {
-    const promocionesRef = useRef([])
+    let promocionesRef = useRef([])
+    
+    let [resenas, setResenas] = useState([
+        {  
+        id: "resena1",
+        nombre: "Anton Ego",
+        cargo: "Crítico Gastronómico",
+        estrellas: "★★★★★",
+        comentario: "El Lomo Saltado me hizo recordar mi infancia de la forma más pura y emotiva. Una cocina que respeta la tradición pero se atreve a emocionar.",
+        avatar: "/anton_ego.png"
+        },
+        {
+        id: "resena2",
+        nombre: "Gordon Ramsay",
+        cargo: "Chef Internacional",
+        estrellas: "★★★★★",
+        comentario: "El punto de cocción de la carne en el Wok es simplemente perfecto. Crujiente por fuera, jugoso por dentro. Simplemente sublime.",
+        avatar: "/gordon.png"
+        },
+        {
+        id: "resena3",
+        nombre: "Adan",
+        cargo: "Primer Hombre de la Tierra",
+        estrellas: "★★★★★",
+        comentario: "El Ceviche es extremadamente fresco. El balance cítrico con el ají limo es la combinación perfecta para un fin de semana con Eva y los niños",
+        avatar: "/Adan.png"
+        },
+        {
+        id: "resena4",
+        nombre: "Cristiano Ronaldo",
+        cargo: "Youtuber y Futbolista",
+        estrellas: "★★★★★",
+        comentario: "La textura del Ají de Gallina es de otro mundo. Cremosa, cremosa y llena de sabor. Sin duda mi restaurante criollo favorito en Perú. SIIIIIIIIIUUUUUUUU",
+        avatar: "/CR7.png"
+        }
+    ])
+
+        let [indexResena, setIndexResena] = useState(0)
+        let [mostrarModal, setMostrarModal] = useState(false)
+        let [nuevaResena, setNuevaResena] = useState({
+        nombre: '',
+        cargo: '',
+        estrellas: '★★★★★',
+        comentario: '',
+        avatar: ''
+    })
+        let siguienteResena = () => {
+            setIndexResena((prev) => (prev + 1) % resenas.length)
+        }
+        let anteriorResena = () => {
+            setIndexResena((prev) => (prev - 1 + resenas.length) % resenas.length)
+        }
+        let handleInputChange = (e) => {
+        let { name, value } = e.target
+        setNuevaResena((prev) => ({
+        ...prev,
+        [name]: value
+        }))
+    }
+        let agregarResena = (e) => {
+        e.preventDefault()
+
+        if (!nuevaResena.nombre || !nuevaResena.comentario) {
+        alert("Por favor completa al menos el nombre y el comentario.")
+        return
+        }
+
+        let nuevaEntry = {
+        id: Date.now(),
+        nombre: nuevaResena.nombre,
+        cargo: nuevaResena.cargo || "Comensal",
+        estrellas: nuevaResena.estrellas,
+        comentario: nuevaResena.comentario,
+        avatar: nuevaResena.avatar || `https://thispersondoesnotexist.com/?v=${Date.now()}`
+        }
+
+        let resenasActualizadas = [...resenas, nuevaEntry]
+        setResenas(resenasActualizadas)
+        setIndexResena(resenasActualizadas.length - 1)
+        setNuevaResena({ nombre: '', cargo: '', estrellas: '★★★★★', comentario: '', avatar: '' })
+        setMostrarModal(false)
+    }
     
     useEffect(() => {
-    const observer = new IntersectionObserver(
+    let observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -52,7 +133,7 @@ export default function Inicio() {
               </p>
               <div className="Ingredientes">
                 <div className="titulo-opcion"><strong>Ingredientes Principales</strong>
-                  <ul>
+                  <ul> <br />
                     <li>Lomo fino de res</li>
                     <li>Cebolla roja gruesa</li>
                     <li>Tomates frescos</li>
@@ -84,7 +165,7 @@ export default function Inicio() {
               </p>
               <div className="Ingredientes">
                 <div className="titulo-opcion"><strong>Ingredientes Principales</strong>
-                  <ul>
+                  <ul> <br />
                     <li>Pechuga de pollo deshilachada</li>
                     <li>Pasta de ají amarillo</li>
                     <li>Leche evaporada y pan (o galleta)</li>
@@ -120,7 +201,7 @@ export default function Inicio() {
               </p>
               <div className="Ingredientes">
                 <div className="titulo-opcion"><strong>Ingredientes Principales</strong>
-                  <ul>
+                  <ul> <br />
                     <li>Pescado blanco fresco del día</li>
                     <li>Jugo de limón sutil</li>
                     <li>Cebolla roja en pluma fina</li>
@@ -144,6 +225,132 @@ export default function Inicio() {
             </div>
           </div>
         </section>
+
+        <section id="Resenas" className="seccion-resenas">
+          <h2 className="titulo-resenas">LO QUE DICEN NUESTROS CLIENTES</h2>
+          
+          <div className="contenedor-slider">
+            <button className="btn-slider btn-prev" onClick={anteriorResena}>
+              &#10094;
+            </button>
+
+            <div className="tarjeta-resena">
+              <div className="estrellas">{resenas[indexResena]?.estrellas}</div>
+              <p className="comentario-resena">"{resenas[indexResena]?.comentario}"</p>
+              
+              <div className="autor-info">
+                <img 
+                  src={resenas[indexResena]?.avatar} 
+                  alt={resenas[indexResena]?.nombre} 
+                  className="avatar-resena" 
+                />
+                <div>
+                  <h4 className="nombre-autor">{resenas[indexResena]?.nombre}</h4>
+                  <span className="cargo-autor">{resenas[indexResena]?.cargo}</span>
+                </div>
+              </div>
+
+              <button 
+                className="btn-lapiz-editar" 
+                title="Escribir una reseña"
+                onClick={() => setMostrarModal(true)}
+              >
+                ✏️
+              </button>
+            </div>
+
+            <button className="btn-slider btn-next" onClick={siguienteResena}>
+              &#10095;
+            </button>
+          </div>
+
+          <div className="puntos-slider">
+            {resenas.map((resena, i) => (
+              <span 
+                key={resena.id} 
+                className={`punto ${i === indexResena ? 'activo' : ''}`}
+                onClick={() => setIndexResena(i)}
+              />
+            ))}
+          </div>
+        </section>
+
+        {mostrarModal && (
+          <div className="modal-overlay">
+            <div className="modal-contenido">
+              <h3>Escribir una Reseña</h3>
+              <form onSubmit={agregarResena}>
+                <div className="grupo-input">
+                  <label>Tu Nombre *</label>
+                  <input 
+                    type="text" 
+                    name="nombre" 
+                    value={nuevaResena.nombre} 
+                    onChange={handleInputChange} 
+                    placeholder="Ej. Carlos Mendoza"
+                    required 
+                  />
+                </div>
+
+                <div className="grupo-input">
+                  <label>Cargo / Ocupación</label>
+                  <input 
+                    type="text" 
+                    name="cargo" 
+                    value={nuevaResena.cargo} 
+                    onChange={handleInputChange} 
+                    placeholder="Ej. Cliente frecuente / Foodie" 
+                  />
+                </div>
+
+                <div className="grupo-input">
+                  <label>Puntuación</label>
+                  <select 
+                    name="estrellas" 
+                    value={nuevaResena.estrellas} 
+                    onChange={handleInputChange}
+                  >
+                    <option value="★★★★★">★★★★★ (5/5)</option>
+                    <option value="★★★★☆">★★★★☆ (4/5)</option>
+                    <option value="★★★☆☆">★★★☆☆ (3/5)</option>
+                  </select>
+                </div>
+
+                <div className="grupo-input">
+                  <label>Comentario *</label>
+                  <textarea 
+                    name="comentario" 
+                    rows="3" 
+                    value={nuevaResena.comentario} 
+                    onChange={handleInputChange} 
+                    placeholder="Escribe tu opinión sobre el restaurante..."
+                    required
+                  />
+                </div>
+
+                <div className="grupo-input">
+                  <label>URL Foto de Perfil (Opcional)</label>
+                  <input 
+                    type="url" 
+                    name="avatar" 
+                    value={nuevaResena.avatar} 
+                    onChange={handleInputChange} 
+                    placeholder="https://..." 
+                  />
+                </div>
+
+                <div className="acciones-modal">
+                  <button type="button" className="btn-cancelar" onClick={() => setMostrarModal(false)}>
+                    Cancelar
+                  </button>
+                  <button type="submit" className="btn-guardar">
+                    Publicar Reseña
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
     </main>
     </>
   )

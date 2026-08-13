@@ -47,7 +47,7 @@ content: "";
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/banner_inicio.png');
+    background-image: url('/banner_inicio2.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -203,6 +203,248 @@ main{
     color: #888888;
     margin: 0;
     line-height: 1.5;
+}
+
+.seccion-resenas {
+    background-color: #e4e4e4f2;
+    color: #1a1a1a;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.titulo-resenas {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    color: #1a1a1a;
+}
+
+.contenedor-slider {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+}
+
+.tarjeta-resena {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    flex: 1;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.estrellas {
+    color: #f39c12;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.comentario-resena {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.autor-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar-resena {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nombre-autor {
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: #1a1a1a;
+}
+
+.cargo-autor {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+
+.btn-slider {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-slider:hover {
+    background: #160d08;
+    transform: scale(1.1);
+}
+
+
+.puntos-slider {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.punto {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bbb;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.punto.activo {
+    background-color: #160d08;
+    width: 28px;
+    border-radius: 10px;
+}
+.btn-lapiz-editar {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-lapiz-editar:hover {
+    background: #8b0020;
+    transform: scale(1.15) rotate(15deg);
+}
+
+/* --- MODAL OVERLAY Y VENTANA EMERGENTE --- */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-contenido {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    color: #1a1a1a;
+    text-align: left;
+}
+
+.modal-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    color: #8b0020;
+}
+
+.grupo-input {
+    margin-bottom: 15px;
+}
+
+.grupo-input label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.grupo-input input,
+.grupo-input select,
+.grupo-input textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.grupo-input input:focus,
+.grupo-input textarea:focus {
+    outline: none;
+    border-color: #8b0020;
+}
+
+.acciones-modal {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.btn-cancelar {
+    background: #e0e0e0;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-guardar {
+    background: #8b0020;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-guardar:hover {
+    background: #b3002d;
 }
 
 @media (max-width: 900px) {
