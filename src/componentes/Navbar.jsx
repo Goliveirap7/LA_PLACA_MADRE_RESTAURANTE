@@ -23,9 +23,10 @@ export default function Navbar() {
             NOSOTROS
           </NavLink>
             <ul>
-              <li><NavLink to="/nosotros">Nuestra Historia</NavLink></li>
-              <li><NavLink to="/nosotros">Misión y Visión</NavLink></li>
-              <li><NavLink to="/nosotros">Nuestro Equipo</NavLink></li>
+              <li><Link to="/nosotros#historia">Nuestra Historia</Link></li>
+              <li><Link to="/nosotros#mision">Misión y Visión</Link></li>
+              <li><Link to="/nosotros#equipo">Nuestro Equipo</Link></li>
+              <li><Link to="/nosotros#galeria">Galería</Link></li>
             </ul>
           </li>
           
@@ -59,8 +60,8 @@ export default function Navbar() {
             DELIVERY
           </NavLink>
             <ul>
-              <li><NavLink to="/delivery">Zona de Cobertura</NavLink></li>
-              <li><NavLink to="/delivery">Formulario de Pedidos</NavLink></li>
+              <li><Link to="/delivery#cobertura">Zona de Cobertura</Link></li>
+              <li><Link to="/delivery#">Formulario de Pedidos</Link></li>
             </ul>              
           </li>
         </ul>

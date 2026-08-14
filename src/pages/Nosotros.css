@@ -160,7 +160,7 @@ content: "";
 }
 
 .tarjeta-mv-contenedor.volteada .tarjeta-mv-inner {
-    transform: rotateY(180deg);
+    transform: rotateY(-180deg);
 }
 
 .cara-frontal,
@@ -186,6 +186,11 @@ content: "";
     transition: box-shadow 0.3s ease;
 }
 
+  .cara-frontal h3 {
+        font-size: 2em;
+        
+    }
+
 .tarjeta-mv-contenedor:hover .cara-frontal,
 .tarjeta-mv-contenedor:hover .cara-trasera {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
@@ -193,7 +198,7 @@ content: "";
 
 
 .cara-trasera {
-    transform: rotateY(180deg);
+    transform: rotateY(0.5turn);
     justify-content: space-between;
 }
 
@@ -494,6 +499,7 @@ content: "";
 
     .cara-frontal h3 {
         font-size: 1.3rem;
+        
     }
 
     .cara-trasera p {

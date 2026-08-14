@@ -1,11 +1,12 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import './Nosotros.css'
 
 export default function Nosotros() {
-  // Estado para la Galería de Fotos (Modal para ver la imagen ampliada)
   const [fotoSeleccionada, setFotoSeleccionada] = useState(null)
   const [misionVolteada, setMisionVolteada] = useState(false)
   const [visionVolteada, setVisionVolteada] = useState(false)
+  const { pathname, hash } = useLocation()
   const equipo = [
     {
       nombre: "Chef Linguini",
@@ -35,6 +36,19 @@ export default function Nosotros() {
     { id: 5, titulo: "Próximo local", url: "/galeria_nosotros5.jpg" },
     { id: 6, titulo: "Disfrutando!", url: "/galeria_nosotros6.jpg" }
   ]
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const elemento = document.getElementById(hash.replace('#', ''))
+        if (elemento) {
+          elemento.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [pathname, hash])
+
 
   return (
     <div className="nosotros-container">
@@ -67,7 +81,7 @@ export default function Nosotros() {
           >
             <div className="tarjeta-mv-inner">
               <div className="cara-frontal">
-                <h3>Nuestra Misión</h3>
+                <h3>Misión</h3>
               </div>
               
               <div className="cara-trasera">
@@ -83,7 +97,7 @@ export default function Nosotros() {
           >
             <div className="tarjeta-mv-inner">
               <div className="cara-frontal">
-                <h3>Nuestra Visión</h3>
+                <h3>Visión</h3>
               </div>
 
               <div className="cara-trasera">

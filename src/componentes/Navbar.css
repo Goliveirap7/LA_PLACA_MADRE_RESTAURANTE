@@ -38,7 +38,11 @@
     transition: all 0.3s ease;
 }
 
-.menu a:hover,
+.menu a:hover{
+        color: #ffffff;
+        background: transparent;
+        font-weight: bold;
+}
 .menu a.active {
     background: transparent;
     font-weight: bold;
