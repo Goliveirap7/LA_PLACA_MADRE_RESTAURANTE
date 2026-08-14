@@ -59,7 +59,7 @@ content: "";
 .btn-reserva-header {
     position: relative;
     z-index: 2; 
-    background-color: #8b0020;
+    background-color: #E6B800;
     color: #ffffff;
     text-decoration: none;
     font-size: 0.95rem;
@@ -74,13 +74,13 @@ content: "";
 
 
 .btn-reserva-header:hover {
-    background-color: #b3002d; 
+    background-color: #FFD700; 
     transform: translateY(-3px) scale(1.03); 
-    box-shadow: 0 6px 20px rgba(179, 0, 45, 0.4);
+    box-shadow: 0 6px 20px #b46805f2(179, 0, 45, 0.4);
 }
 
 .btn-reserva-header:active {
-    transform: translateY(0) scale(2);
+    transform: translateY(0) scale(1.1);
 }
 
 main{
@@ -354,7 +354,6 @@ main{
     transform: scale(1.15) rotate(15deg);
 }
 
-/* --- MODAL OVERLAY Y VENTANA EMERGENTE --- */
 .modal-overlay {
     position: fixed;
     top: 0;
