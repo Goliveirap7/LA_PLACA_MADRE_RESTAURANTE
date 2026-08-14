@@ -50,7 +50,7 @@ export default function Navbar() {
             RESERVAS
           </NavLink>
             <ul>
-                <a href="#">Separa tu reserva</a>
+                <li><Link to="/reservas">Separa tu reserva</Link></li>
             </ul>
           </li>
           <li><NavLink 
