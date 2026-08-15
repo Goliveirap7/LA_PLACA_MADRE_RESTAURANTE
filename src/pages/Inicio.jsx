@@ -351,6 +351,56 @@ export default function Inicio() {
             </div>
           </div>
         )}
+        <section id="ubicacion" className="seccion-ubicacion">
+  <div className="ubicacion-container">
+    
+    {/* Columna Izquierda: Información y Horarios */}
+    <div className="ubicacion-info">
+      <h2>VISÍTANOS</h2>
+      <p className="subtitulo-ubicacion">Vive la experiencia culinaria tradicional en el corazón de la ciudad.</p>
+      
+      <div className="bloque-detalle">
+        <h3>📍 Dirección</h3>
+        <p>Av. Paseo de la República 170, Centro Histórico de Lima, Perú</p>
+      </div>
+
+      <div className="bloque-detalle">
+        <h3>🕒 Horarios de Atención</h3>
+        <ul className="lista-horarios">
+          <li>
+            <span>Lunes a Jueves:</span>
+            <strong>12:00 PM – 10:00 PM</strong>
+          </li>
+          <li>
+            <span>Viernes y Sábados:</span>
+            <strong>12:00 PM – 11:30 PM</strong>
+          </li>
+          <li>
+            <span>Domingos y Feriados:</span>
+            <strong>12:00 PM – 09:00 PM</strong>
+          </li>
+        </ul>
+      </div>
+
+      <div className="bloque-detalle">
+        <h3>📞 Contacto & Reservas</h3>
+        <p>Central: +51 987 654 321 | reservas@laplacamadre.pe</p>
+      </div>
+    </div>
+
+    {/* Columna Derecha: Mapa embebido */}
+    <div className="ubicacion-mapa">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.6010666386933!2d-77.03797401131303!3d-12.057660294475928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton%20Lima%20Historic%20Center!5e0!3m2!1ses-419!2spe!4v1786731082086!5m2!1ses-419!2spe" 
+        title="Ubicación La Placa Madre"
+        allowFullScreen="" 
+        loading="lazy" 
+        referrerPolicy="strict-origin-when-cross-origin"
+      ></iframe>
+    </div>
+
+  </div>
+</section>
     </main>
     </>
   )

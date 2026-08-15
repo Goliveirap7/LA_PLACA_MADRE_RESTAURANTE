@@ -304,7 +304,7 @@ main{
 }
 
 .btn-slider:hover {
-    background: #160d08;
+    background: #E6B800;
     transform: scale(1.1);
 }
 
@@ -350,7 +350,7 @@ main{
 }
 
 .btn-lapiz-editar:hover {
-    background: #8b0020;
+    background: #E6B800;
     transform: scale(1.15) rotate(15deg);
 }
 
@@ -383,7 +383,7 @@ main{
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 1.4rem;
-    color: #8b0020;
+    color: #b46805f2;
 }
 
 .grupo-input {
@@ -412,7 +412,7 @@ main{
 .grupo-input input:focus,
 .grupo-input textarea:focus {
     outline: none;
-    border-color: #8b0020;
+    border-color: #b46805f2;
 }
 
 .acciones-modal {
@@ -432,7 +432,7 @@ main{
 }
 
 .btn-guardar {
-    background: #8b0020;
+    background: #E6B800;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -443,7 +443,140 @@ main{
 }
 
 .btn-guardar:hover {
-    background: #b3002d;
+    background: #FFD700;
+}
+
+.seccion-ubicacion {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 80px 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.ubicacion-container {
+    max-width: 1350px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    gap: 50px;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* Columna Izquierda: Información */
+.ubicacion-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ubicacion-info h2 {
+    font-size: 2.3rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.subtitulo-ubicacion {
+    color: #aaaaaa;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.bloque-detalle {
+    margin-bottom: 25px;
+}
+
+.bloque-detalle h3 {
+    font-size: 1.15rem;
+    color: #ff9812f2;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.bloque-detalle p {
+    color: #dddddd;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Lista de Horarios */
+.lista-horarios {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-horarios li {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.15);
+    font-size: 0.95rem;
+    color: #dddddd;
+    max-width: 420px;
+}
+
+.lista-horarios li strong {
+    color: #ffffff;
+}
+
+/* Columna Derecha: Mapa */
+.ubicacion-mapa {
+    flex: 1.2;
+    min-height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ubicacion-mapa iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0;
+    display: block;
+}
+
+/* --- RESPONSIVE UBICACIÓN --- */
+@media (max-width: 950px) {
+    .ubicacion-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .lista-horarios li {
+        max-width: 100%;
+    }
+
+    .ubicacion-mapa {
+        min-height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .seccion-ubicacion {
+        padding: 50px 0;
+    }
+
+    .ubicacion-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .lista-horarios li {
+        font-size: 0.85rem;
+    }
+
+    .ubicacion-mapa iframe {
+        min-height: 280px;
+    }
 }
 
 @media (max-width: 900px) {
