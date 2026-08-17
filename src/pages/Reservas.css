@@ -38,15 +38,15 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 
 .titulo-reserva1 {
     text-align: center;
-    color: #6b1d2f;
+    color: #b46805f2;
     padding-top: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
 }
 
 
-.pasos-bar {
-    background-color: #722f37;
+main .pasos-bar {
+    background-color: #1f1f1ff2;
     color: white;
     display: flex;
     justify-content: center;
@@ -56,26 +56,26 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
     width: 100%;
 }
 
-.pasos-bar .paso-activo,
-.pasos-bar .paso {
+main .pasos-bar .paso-activo,
+main .pasos-bar .paso {
     font-size: 16px;
     margin: 0;
     flex: 0 0 auto; 
 }
 
-.pasos-bar .paso-activo {
+main .pasos-bar .paso-activo {
     opacity: 1;
     border-bottom: 2px solid white; 
 }
 
-.pasos-bar .paso {
+main .pasos-bar .paso {
     opacity: 0.6;
 }
 
-.pasos-bar .separador {
+main .pasos-bar .separador {
     opacity: 0.5;
     margin: 0;
-    flex: 0 0 auto; 
+    flex: 0 0 auto;
 }
 
 .seccion-espacios{
@@ -128,12 +128,12 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 .tarjeta-espacio:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
-  border-color: #6b1d2f;         
+  border-color: #FFD700;         
 }
 
 
 .tarjeta-espacio.seleccionado {
-  background-color: #6b1d2f; 
+  background-color: #FFD700; 
   color: #ffffff;   
   border-color: #0073c8;
   box-shadow: 0 6px 12px rgba(0, 115, 200, 0.3);
@@ -141,7 +141,7 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 
 .tarjeta-espacio.seleccionado p,
 .tarjeta-espacio.seleccionado span {
-  color: #ffffff;
+  color: #481414;
   font-weight: 600;
 }
 
@@ -238,7 +238,7 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 }
 
 .input-nativo:focus {
-  border-color: #6b1d2f;
+  border-color: #FFD700;
   box-shadow: 0 0 0 3px rgba(107, 29, 47, 0.15);
   background-color: #ffffff;
 }
@@ -278,7 +278,7 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 
 
 .btn-hora:hover {
-  border-color: #6b1d2f;
+  border-color: #FFD700;
   color: #6b1d2f;
   background-color: #ffffff;
 }
@@ -299,13 +299,13 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 }
 
 .btn-siguiente-horario:hover {
-  background-color: #6b1d2f;
+  background-color: #FFD700;
   border-color: #6b1d2f;
   color: #ffffff;
 }
 
 .btn-hora.activo {
-  background-color: #6b1d2f;
+  background-color: #a08c1a;
   color: #ffffff;
   border-color: #6b1d2f;
   box-shadow: 0px 3px 8px rgba(107, 29, 47, 0.3);
@@ -342,7 +342,7 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 }
 
 .btn-persona:hover {
-  background-color: #6b1d2f;
+  background-color: #FFD700;
   color: #ffffff;
   transform: translateY(-2px);
 }
@@ -377,12 +377,12 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 }
 
 .btn-continuar:hover {
-  background-color: #6b1d2f; 
+  background-color: #a08c1a; 
   transform: translateY(-1px);
 }
 
 .btn-persona.activo {
-  background-color: #6b1d2f;
+  background-color: #a08c1a;
   color: #ffffff;
   border-color: #6b1d2f;
   box-shadow: 0px 3px 8px rgba(107, 29, 47, 0.3);
@@ -392,7 +392,7 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 
 .titulo-reserva2 {
     text-align: center;
-    color: #6b1d2f;
+    color: #b46805f2;
     padding-top: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 40px;
@@ -648,7 +648,7 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
 
 .titulo-reserva3 {
     text-align: center;
-    color: #6b1d2f;
+    color: #b46805f2;
     padding-top: 50px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 50px;
