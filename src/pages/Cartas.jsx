@@ -1,26 +1,73 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import './Cartas.css'; // Ajusta la ruta según la ubicación de tu CSS
+import './Cartas.css'; 
 
 export default function Cartas() {
   const [categoriaActiva, setCategoriaActiva] = useState('entradas');
-  const location = useLocation(); // Hook para escuchar cambios en la URL (incluyendo el hash)
+  const [carrito, setCarrito] = useState([]); 
+  const location = useLocation(); 
 
   useEffect(() => {
-    // Convierte el hash a minúsculas para evitar problemas de mayúsculas/minúsculas
-    const hash = location.hash.toLowerCase();
+    const pedidoGuardado = JSON.parse(localStorage.getItem('pedidoDelivery')) || [];
+    setCarrito(pedidoGuardado);
+  }, []);
 
+  useEffect(() => {
+    const hash = location.hash.toLowerCase();
     if (hash === '#platosfuertes' || hash === '#platos-fuertes') {
       setCategoriaActiva('fuertes');
     } else {
       setCategoriaActiva('entradas');
     }
-  }, [location]); // Se ejecuta cada vez que cambia la URL o el hash
+  }, [location]); 
+
+  const agregarAlDelivery = (plato) => {
+    const pedidoActual = JSON.parse(localStorage.getItem('pedidoDelivery')) || [];
+    const nuevoPedido = [...pedidoActual, plato];
+    
+    localStorage.setItem('pedidoDelivery', JSON.stringify(nuevoPedido));
+    setCarrito(nuevoPedido); 
+  };
+
+  // NUEVA FUNCIÓN: Para restar productos
+  const quitarDelDelivery = (platoId) => {
+    const pedidoActual = JSON.parse(localStorage.getItem('pedidoDelivery')) || [];
+    const index = pedidoActual.findIndex(item => item.id === platoId); // Encuentra el primero que coincida
+    
+    if (index !== -1) {
+      pedidoActual.splice(index, 1); // Lo elimina del arreglo
+      localStorage.setItem('pedidoDelivery', JSON.stringify(pedidoActual));
+      setCarrito(pedidoActual);
+    }
+  };
+
+  // Función auxiliar mejorada con botones + y -
+  const renderBotonAgregar = (plato) => {
+    const cantidad = carrito.filter(item => item.id === plato.id).length;
+    
+    // Si no hay productos, mostramos el botón clásico de Agregar
+    if (cantidad === 0) {
+      return (
+        <button onClick={() => agregarAlDelivery(plato)}>
+          <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff', marginRight: '5px' }}></i>
+          Agregar
+        </button>
+      );
+    }
+
+    // Si ya hay 1 o más, mostramos los controles + y -
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#2b2b2b', borderRadius: '5px', overflow: 'hidden' }}>
+        <button onClick={() => quitarDelDelivery(plato.id)} style={{ backgroundColor: 'transparent', padding: '8px 15px', color: '#fff', fontSize: '18px', border: 'none', cursor: 'pointer' }}>-</button>
+        <span style={{ fontWeight: 'bold', color: '#ffcc00', padding: '0 10px' }}>{cantidad}</span>
+        <button onClick={() => agregarAlDelivery(plato)} style={{ backgroundColor: 'transparent', padding: '8px 15px', color: '#fff', fontSize: '18px', border: 'none', cursor: 'pointer' }}>+</button>
+      </div>
+    );
+  };
 
   // DATOS DE ENTRADAS
   let seccionCeviche = {
-    descripcion:
-      "1. Ceviche de Pescado Es el plato bandera de la costa. Se elabora con cubos de pescado fresco cocidos en jugo de limón sutil, acompañados de cebolla morada, ají limo y cilantro.",
+    descripcion: "1. Ceviche de Pescado Es el plato bandera de la costa...",
     platos: [
       { id: "ceviche-1", img: "/carta1/carta1.jpg", titulo: "Ceviche peruano: La receta tradicional", categoria: "plato de entrada", precio: "S/ 10.00" },
       { id: "ceviche-2", img: "/carta1/carta2.jpg", titulo: "Clásico ceviche de pescado", categoria: "plato de entrada", precio: "S/ 12.00" },
@@ -29,8 +76,7 @@ export default function Cartas() {
   };
 
   let seccionCausa = {
-    descripcion:
-      "2. Causa Rellena (de Cangrejo o Pollo) Una entrada fría construida con capas de masa de papa amarilla prensada, sazonada con pasta de ají amarillo, aceite y limón.",
+    descripcion: "2. Causa Rellena (de Cangrejo o Pollo)...",
     platos: [
       { id: "causa-1", img: "/carta2/entrada1.jpg", titulo: "CAUSA DE POLLO", categoria: "plato de entrada", precio: "S/ 10.00" },
       { id: "causa-2", img: "/carta2/entrada2.jpg", titulo: "Receta tradicional de causa rellena", categoria: "plato de entrada", precio: "S/ 12.00" },
@@ -39,8 +85,7 @@ export default function Cartas() {
   };
 
   let seccionTiradito = {
-    descripcion:
-      "3. Tiradito de Pescado Es una variante del ceviche influenciada por la cocina japonesa. El pescado se corta en finas láminas y se sirve cubierto por una emulsión de ají.",
+    descripcion: "3. Tiradito de Pescado Es una variante del ceviche...",
     platos: [
       { id: "tiradito-1", img: "/carta3/descarga1.jpg", titulo: "Tiradito a la crema de ají amarillo", categoria: "plato de entrada", precio: "S/ 10.00" },
       { id: "tiradito-2", img: "/carta3/descarga2.jpg", titulo: "El tiradito", categoria: "plato de entrada", precio: "S/ 12.00" },
@@ -50,29 +95,27 @@ export default function Cartas() {
 
   // DATOS DE PLATOS FUERTES
   let seccionPlatosFuertes1 = [
-    { id: "pf-1", img: "/platos fuertes/ceviche-con-leche-de-tigre-2.jpg", titulo: "Cebiche de Pescado", descripcion: "Consiste en trozos de pescado fresco marinado en jugo puro de limón, sazonados al instante con sal, ají limo y cebolla roja.", precio: "S/ 45.00" },
-    { id: "pf-2", img: "/platos fuertes/210-imagen-106565112021.jpg", titulo: "Arroz con Mariscos", descripcion: "Un plato caliente donde el arroz se cocina en un concentrado de mariscos con aderezo de ají amarillo y chicha de jora.", precio: "S/ 48.00" },
-    { id: "pf-3", img: "/platos fuertes/lomo saltado.jpg", titulo: "Lomo Saltado", descripcion: "El rey de la fusión chino-peruana. Se prepara salteando tiras de lomo de res a fuego alto en un wok con cebolla, tomate y ají amarillo.", precio: "S/ 50.00" }
+    { id: "pf-1", img: "/platos fuertes/ceviche-con-leche-de-tigre-2.jpg", titulo: "Cebiche de Pescado", descripcion: "Consiste en trozos de pescado fresco...", precio: "S/ 45.00" },
+    { id: "pf-2", img: "/platos fuertes/210-imagen-106565112021.jpg", titulo: "Arroz con Mariscos", descripcion: "Un plato caliente donde el arroz se cocina...", precio: "S/ 48.00" },
+    { id: "pf-3", img: "/platos fuertes/lomo saltado.jpg", titulo: "Lomo Saltado", descripcion: "El rey de la fusión chino-peruana...", precio: "S/ 50.00" }
   ];
 
   let seccionPlatosFuertes2 = [
-    { id: "pf-4", img: "/platos fuertes/jaleamixta.jpg", titulo: "Jalea Mixta", descripcion: "Pescado y mariscos variados rebozados y fritos a la perfección. Se sirve montado sobre una cama de yucas fritas con salsa criolla.", precio: "S/ 55.00" },
-    { id: "pf-5", img: "/platos fuertes/seco de cabrito.webp", titulo: "Seco de Cabrito con Frijoles", descripcion: "Tierno guiso de cabrito macerado en chicha de jora y culantro, cocido a fuego lento. Se acompaña con frijoles cremosos.", precio: "S/ 48.00" },
-    { id: "pf-6", img: "/platos fuertes/Aji-gallina.jpg", titulo: "Ají de Gallina", descripcion: "Guiso criollo hecho con pechuga de gallina deshilachada en una crema espesa a base de ají amarillo, pan remojado y leche.", precio: "S/ 40.00" }
+    { id: "pf-4", img: "/platos fuertes/jaleamixta.jpg", titulo: "Jalea Mixta", descripcion: "Pescado y mariscos variados rebozados...", precio: "S/ 55.00" },
+    { id: "pf-5", img: "/platos fuertes/seco de cabrito.webp", titulo: "Seco de Cabrito con Frijoles", descripcion: "Tierno guiso de cabrito macerado...", precio: "S/ 48.00" },
+    { id: "pf-6", img: "/platos fuertes/Aji-gallina.jpg", titulo: "Ají de Gallina", descripcion: "Guiso criollo hecho con pechuga de gallina...", precio: "S/ 40.00" }
   ];
 
   let seccionPlatosFuertes3 = [
-    { id: "pf-7", img: "/platos fuertes/pescado-a-lo-macho-ajustada-web.jpg", titulo: "Pescado a lo Macho", descripcion: "Filete de pescado frito bañado en una salsa cremosa y picante de mariscos, acompañado de arroz blanco.", precio: "S/ 55.00" },
-    { id: "pf-8", img: "/platos fuertes/arroz con pato.jpg", titulo: "Arroz con Pato a la Chiclayana", descripcion: "Arroz cocinado con culantro licuado, chicha de jora y cerveza negra, servido con una presa de pato jugosa.", precio: "S/ 52.00" },
-    { id: "pf-9", img: "/platos fuertes/escabeche-de-pescado_800x534.webp", titulo: "Escabeche de Pescado", descripcion: "Filete de pescado frito bañado en salsa de cebolla y ají amarillo cocidos en vinagre y ají panca.", precio: "S/ 42.00" }
+    { id: "pf-7", img: "/platos fuertes/pescado-a-lo-macho-ajustada-web.jpg", titulo: "Pescado a lo Macho", descripcion: "Filete de pescado frito bañado...", precio: "S/ 55.00" },
+    { id: "pf-8", img: "/platos fuertes/arroz con pato.jpg", titulo: "Arroz con Pato a la Chiclayana", descripcion: "Arroz cocinado con culantro licuado...", precio: "S/ 52.00" },
+    { id: "pf-9", img: "/platos fuertes/escabeche-de-pescado_800x534.webp", titulo: "Escabeche de Pescado", descripcion: "Filete de pescado frito bañado en salsa...", precio: "S/ 42.00" }
   ];
 
   return (
     <>
       <header className="header-cartas"></header>
-
       <main>
-        {/* VISTA 1: ENTRADAS */}
         {categoriaActiva === 'entradas' && (
           <div className="vista-entradas">
             <section>
@@ -85,10 +128,7 @@ export default function Cartas() {
                     <p>{plato.categoria}</p>
                     <div className="precio">
                       <p>{plato.precio}</p>
-                      <button>
-                        <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff' }}></i>
-                        Agregar
-                      </button>
+                      {renderBotonAgregar(plato)}
                     </div>
                   </div>
                 ))}
@@ -105,10 +145,7 @@ export default function Cartas() {
                     <p>{plato.categoria}</p>
                     <div className="precio">
                       <p>{plato.precio}</p>
-                      <button>
-                        <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff' }}></i>
-                        Agregar
-                      </button>
+                      {renderBotonAgregar(plato)}
                     </div>
                   </div>
                 ))}
@@ -125,10 +162,7 @@ export default function Cartas() {
                     <p>{plato.categoria}</p>
                     <div className="precio">
                       <p>{plato.precio}</p>
-                      <button>
-                        <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff' }}></i>
-                        Agregar
-                      </button>
+                      {renderBotonAgregar(plato)}
                     </div>
                   </div>
                 ))}
@@ -137,7 +171,6 @@ export default function Cartas() {
           </div>
         )}
 
-        {/* VISTA 2: PLATOS FUERTES */}
         {categoriaActiva === 'fuertes' && (
           <div className="vista-fuertes" id="platos-fuertes">
             <section>
@@ -150,10 +183,7 @@ export default function Cartas() {
                     <br />
                     <div className="precio">
                       <p>{plato.precio}</p>
-                      <button>
-                        <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff' }}></i>
-                        Agregar
-                      </button>
+                      {renderBotonAgregar(plato)}
                     </div>
                   </div>
                 ))}
@@ -170,10 +200,7 @@ export default function Cartas() {
                     <br />
                     <div className="precio">
                       <p>{plato.precio}</p>
-                      <button>
-                        <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff' }}></i>
-                        Agregar
-                      </button>
+                      {renderBotonAgregar(plato)}
                     </div>
                   </div>
                 ))}
@@ -190,10 +217,7 @@ export default function Cartas() {
                     <br />
                     <div className="precio">
                       <p>{plato.precio}</p>
-                      <button>
-                        <i className="fa-solid fa-cart-arrow-down fa-xl" style={{ color: '#ffffff' }}></i>
-                        Agregar
-                      </button>
+                      {renderBotonAgregar(plato)}
                     </div>
                   </div>
                 ))}
