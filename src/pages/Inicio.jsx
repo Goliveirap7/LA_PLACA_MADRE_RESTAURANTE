@@ -335,7 +335,7 @@ export default function Inicio() {
                     name="avatar" 
                     value={nuevaResena.avatar} 
                     onChange={handleInputChange} 
-                    placeholder="https://..." 
+                    placeholder="" 
                   />
                 </div>
 
@@ -354,7 +354,6 @@ export default function Inicio() {
         <section id="ubicacion" className="seccion-ubicacion">
   <div className="ubicacion-container">
     
-    {/* Columna Izquierda: Información y Horarios */}
     <div className="ubicacion-info">
       <h2>VISÍTANOS</h2>
       <p className="subtitulo-ubicacion">Vive la experiencia culinaria tradicional en el corazón de la ciudad.</p>

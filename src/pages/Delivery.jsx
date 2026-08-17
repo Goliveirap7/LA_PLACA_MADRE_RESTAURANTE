@@ -49,9 +49,7 @@ export default function Delivery() {
         setConfirmado(true);
     };
 
-    // --- NUEVAS FUNCIONES PARA AGREGAR Y QUITAR DESDE DELIVERY ---
     const agregarItem = (plato) => {
-        // Clonamos la info original del plato (quitando propiedades extras calculadas como 'cantidad' o 'subtotal')
         const platoOriginal = { id: plato.id, img: plato.img, titulo: plato.titulo, categoria: plato.categoria, precio: plato.precio };
         const nuevoPedido = [...listaDelivery, platoOriginal];
         localStorage.setItem('pedidoDelivery', JSON.stringify(nuevoPedido));

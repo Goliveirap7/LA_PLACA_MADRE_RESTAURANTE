@@ -29,23 +29,20 @@ export default function Cartas() {
     setCarrito(nuevoPedido); 
   };
 
-  // NUEVA FUNCIÓN: Para restar productos
   const quitarDelDelivery = (platoId) => {
     const pedidoActual = JSON.parse(localStorage.getItem('pedidoDelivery')) || [];
-    const index = pedidoActual.findIndex(item => item.id === platoId); // Encuentra el primero que coincida
+    const index = pedidoActual.findIndex(item => item.id === platoId);
     
     if (index !== -1) {
-      pedidoActual.splice(index, 1); // Lo elimina del arreglo
+      pedidoActual.splice(index, 1);
       localStorage.setItem('pedidoDelivery', JSON.stringify(pedidoActual));
       setCarrito(pedidoActual);
     }
   };
 
-  // Función auxiliar mejorada con botones + y -
   const renderBotonAgregar = (plato) => {
     const cantidad = carrito.filter(item => item.id === plato.id).length;
     
-    // Si no hay productos, mostramos el botón clásico de Agregar
     if (cantidad === 0) {
       return (
         <button onClick={() => agregarAlDelivery(plato)}>
@@ -55,7 +52,6 @@ export default function Cartas() {
       );
     }
 
-    // Si ya hay 1 o más, mostramos los controles + y -
     return (
       <div style={{ display: 'flex', alignItems: 'center', backgroundColor: '#2b2b2b', borderRadius: '5px', overflow: 'hidden' }}>
         <button onClick={() => quitarDelDelivery(plato.id)} style={{ backgroundColor: 'transparent', padding: '8px 15px', color: '#fff', fontSize: '18px', border: 'none', cursor: 'pointer' }}>-</button>
@@ -65,7 +61,6 @@ export default function Cartas() {
     );
   };
 
-  // DATOS DE ENTRADAS
   let seccionCeviche = {
     descripcion: "1. Ceviche de Pescado Es el plato bandera de la costa...",
     platos: [
@@ -93,7 +88,6 @@ export default function Cartas() {
     ]
   };
 
-  // DATOS DE PLATOS FUERTES
   let seccionPlatosFuertes1 = [
     { id: "pf-1", img: "/platos fuertes/ceviche-con-leche-de-tigre-2.jpg", titulo: "Cebiche de Pescado", descripcion: "Consiste en trozos de pescado fresco...", precio: "S/ 45.00" },
     { id: "pf-2", img: "/platos fuertes/210-imagen-106565112021.jpg", titulo: "Arroz con Mariscos", descripcion: "Un plato caliente donde el arroz se cocina...", precio: "S/ 48.00" },
