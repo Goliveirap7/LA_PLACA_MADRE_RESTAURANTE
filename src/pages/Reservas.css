@@ -56,20 +56,26 @@ filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.75));
     width: 100%;
 }
 
-
-.paso {
+.pasos-bar .paso-activo,
+.pasos-bar .paso {
     font-size: 16px;
-    opacity: 0.6;
+    margin: 0;
+    flex: 0 0 auto; 
 }
 
-.paso.activo {
+.pasos-bar .paso-activo {
     opacity: 1;
-    font-weight: bold;
     border-bottom: 2px solid white; 
 }
 
-.separador {
+.pasos-bar .paso {
+    opacity: 0.6;
+}
+
+.pasos-bar .separador {
     opacity: 0.5;
+    margin: 0;
+    flex: 0 0 auto; 
 }
 
 .seccion-espacios{
