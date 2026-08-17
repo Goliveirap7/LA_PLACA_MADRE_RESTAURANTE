@@ -1,5 +1,4 @@
 import { Link, NavLink } from 'react-router-dom'
-
 import './Navbar.css'
 export default function Navbar() {
   return (
@@ -38,8 +37,8 @@ export default function Navbar() {
             CARTAS
           </NavLink>
              <ul>
-                 <li><Link to="/cartas">Entradas</Link></li>
-                 <li><Link to="/cartas">Platos Fuertes</Link></li>
+                <li><Link to="/cartas?categoria=entradas">Entradas</Link></li>
+                <li><Link to="/cartas#platos-fuertes">Platos Fuertes</Link></li>
              </ul>
           </li>
           
