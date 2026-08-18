@@ -597,7 +597,7 @@ main .pasos-bar .separador {
   width: 20px;
   height: 20px;
   cursor: pointer;
-  accent-color: #6b1d2f;
+  accent-color: #a08c1a;
 }
 
 
@@ -638,7 +638,7 @@ main .pasos-bar .separador {
 }
 
 .btn-enviar:hover {
-  background-color: #6b1d2f;
+  background-color: #a08c1a;
   transform: translateY(-1px);
 }
 
