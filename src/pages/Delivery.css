@@ -39,7 +39,7 @@
     min-height: 250px;
 }
 .header_delivery::before {
-content: "";
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -51,13 +51,14 @@ content: "";
     z-index: 1;
 }
 
-.delivery-titulo-seccion{
-   color: #6d1935; 
+.delivery-titulo-seccion {
+    color: #b46805f2; 
 }
+
 .alerta-error {
-  background: #fdecea;
-  color: #b3413b;
-  border: 1px solid #f3c8c4;
+  background: #fffdf5;
+  color: #b46805f2;
+  border: 1px solid #E6B800;
   border-radius: 8px;
   padding: 10px 14px;
   margin-bottom: 16px;
@@ -78,7 +79,7 @@ content: "";
 
 .caja h2 {
   font-size: 16px;
-  color: #6d1935;
+  color: #b46805f2;
   margin: 0 0 6px;
 }
 
@@ -114,7 +115,7 @@ button {
 }
 
 .fila button {
-  background: #6d1935;
+  background: #b46805f2;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -159,7 +160,7 @@ button {
 
 .btn-ancho {
   width: 100%;
-  background: #6d1935;
+  background: #b46805f2;
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -187,8 +188,8 @@ button {
 }
 
 .pago.seleccionado {
-  border-color: #6d1935;
-  background: #f3d9de;
+  border-color: #b46805f2;
+  background: rgba(230, 184, 0, 0.15); /* Versión suave de #E6B800 */
 }
 
 .pago input {
@@ -234,13 +235,13 @@ button {
 }
 
 .circulo.activo {
-  background: #6d1935;
-  border-color: #6d1935;
+  background: #b46805f2;
+  border-color: #b46805f2;
   color: #fff;
 }
 
 .resumen {
-  background: #f3d9de;
+  background: rgba(230, 184, 0, 0.15); /* Fondo dorado muy suave adaptado */
   border-radius: 8px;
   padding: 12px 14px;
   margin-top: 14px;
@@ -268,7 +269,6 @@ button {
 }
 
 @media (max-width: 600px) {
-
   .grid2,
   .pagos {
     grid-template-columns: 1fr;

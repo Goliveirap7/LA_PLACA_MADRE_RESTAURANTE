@@ -94,7 +94,7 @@ export default function Delivery() {
             <main className="delivery-main">
                 
                 <div className="delivery-titulo-seccion" style={{ textAlign: 'center', marginBottom: '20px' }}>
-                    <h1>DELIVERYYYYYYYYYYYYYYYYY</h1>
+                    <h1>DELIVERY</h1>
                     <p>Haz tu pedido y recíbelo donde estés</p>
                 </div>
 
