@@ -60,7 +60,7 @@ export default function Navbar() {
           </NavLink>
             <ul>
               <li><Link to="/delivery#cobertura">Zona de Cobertura</Link></li>
-              <li><Link to="/delivery#">Formulario de Pedidos</Link></li>
+              <li><Link to="/delivery#">Resumen del pedido</Link></li>
             </ul>              
           </li>
         </ul>
