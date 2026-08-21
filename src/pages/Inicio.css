@@ -467,7 +467,6 @@ main{
     box-sizing: border-box;
 }
 
-/* Columna Izquierda: Información */
 .ubicacion-info {
     flex: 1;
     display: flex;
@@ -506,7 +505,6 @@ main{
     margin: 0;
 }
 
-/* Lista de Horarios */
 .lista-horarios {
     list-style: none;
     padding: 0;
@@ -527,7 +525,7 @@ main{
     color: #ffffff;
 }
 
-/* Columna Derecha: Mapa */
+
 .ubicacion-mapa {
     flex: 1.2;
     min-height: 400px;
@@ -545,7 +543,6 @@ main{
     display: block;
 }
 
-/* --- RESPONSIVE UBICACIÓN --- */
 @media (max-width: 950px) {
     .ubicacion-container {
         flex-direction: column;

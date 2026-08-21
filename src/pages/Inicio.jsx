@@ -387,7 +387,6 @@ export default function Inicio() {
       </div>
     </div>
 
-    {/* Columna Derecha: Mapa embebido */}
     <div className="ubicacion-mapa">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3187.6010666386933!2d-77.03797401131303!3d-12.057660294475928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c6d103eef1%3A0x21e996eeb5d06b7d!2sSheraton%20Lima%20Historic%20Center!5e0!3m2!1ses-419!2spe!4v1786731082086!5m2!1ses-419!2spe" 
