@@ -7,11 +7,13 @@ export default function Delivery() {
    
     const [direccion, setDireccion] = useState("");
     const [zonaValida, setZonaValida] = useState(null);
+
     const [nombre, setNombre] = useState("");
     const [telefono, setTelefono] = useState("");
     const [direccionEntrega, setDireccionEntrega] = useState("");
     const [referencia, setReferencia] = useState("");
     const [observaciones, setObservaciones] = useState("");
+
     const [pago, setPago] = useState("Efectivo");
     const [confirmado, setConfirmado] = useState(false);
     const [error, setError] = useState("");
@@ -49,7 +51,8 @@ export default function Delivery() {
         setConfirmado(true);
     };
 
-    const agregarItem = (plato) => {
+ const agregarItem = (plato) => {
+        if (confirmado) return; 
         const platoOriginal = { id: plato.id, img: plato.img, titulo: plato.titulo, categoria: plato.categoria, precio: plato.precio };
         const nuevoPedido = [...listaDelivery, platoOriginal];
         localStorage.setItem('pedidoDelivery', JSON.stringify(nuevoPedido));
@@ -57,6 +60,7 @@ export default function Delivery() {
     };
 
     const quitarItem = (platoId) => {
+        if (confirmado) return; 
         const index = listaDelivery.findIndex(item => item.id === platoId);
         if (index !== -1) {
             const nuevoPedido = [...listaDelivery];
@@ -93,7 +97,7 @@ export default function Delivery() {
 
             <main className="delivery-main">
                 
-                <div className="delivery-titulo-seccion" style={{ textAlign: 'center', marginBottom: '20px' }}>
+                <div className="delivery-titulo-seccion">
                     <h1>DELIVERY</h1>
                     <p>Haz tu pedido y recíbelo donde estés</p>
                 </div>
@@ -104,38 +108,46 @@ export default function Delivery() {
 
                     <aside className="columna-carrito caja">
                         <h2>Resumen de tu Pedido</h2>
-                        <hr style={{ margin: '10px 0' }}/>
+                        <hr className="divider" />
                         
                         {pedidoAgrupado.length === 0 ? (
                             <p>Tu carrito está vacío. ¡Agrega unos platos deliciosos!</p>
                         ) : (
                             <>
-                                <ul style={{ listStyle: 'none', padding: 0 }}>
+                                <ul className="lista-carrito">
                                     {pedidoAgrupado.map((item, index) => (
-                                        <li key={index} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '15px' }}>
+                                        <li key={index} className="item-carrito">
                                             
-                                            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                                <button 
-                                                    onClick={() => quitarItem(item.id)} 
-                                                    style={{ width: '25px', height: '25px', cursor: 'pointer', border: '1px solid #ccc', background: '#fff', borderRadius: '4px', fontWeight: 'bold' }}>-
-                                                </button>
+                                            <div className="item-controles">
+                                                {confirmado ? (
+                                                    <span className="texto-cantidad-bloqueada">
+                                                        x{item.cantidad}
+                                                    </span>
+                                                ) : (
+                                                    <>
+                                                        <button 
+                                                            onClick={() => quitarItem(item.id)} 
+                                                            className="btn-cantidad">-
+                                                        </button>
+                                                        
+                                                        <strong className="cantidad-numero">{item.cantidad}</strong>
+                                                        
+                                                        <button 
+                                                            onClick={() => agregarItem(item)} 
+                                                            className="btn-cantidad">+
+                                                        </button>
+                                                    </>
+                                                )}
                                                 
-                                                <strong style={{ minWidth: '15px', textAlign: 'center' }}>{item.cantidad}</strong>
-                                                
-                                                <button 
-                                                    onClick={() => agregarItem(item)} 
-                                                    style={{ width: '25px', height: '25px', cursor: 'pointer', border: '1px solid #ccc', background: '#fff', borderRadius: '4px', fontWeight: 'bold' }}>+
-                                                </button>
-                                                
-                                                <span style={{ marginLeft: '5px' }}>{item.titulo}</span>
+                                                <span className="item-titulo">{item.titulo}</span>
                                             </div>
 
-                                            <span style={{ fontWeight: '500' }}>S/ {item.subtotal.toFixed(2)}</span>
+                                            <span className="item-subtotal">S/ {item.subtotal.toFixed(2)}</span>
                                         </li>
                                     ))}
                                 </ul>
-                                <hr style={{ margin: '15px 0' }}/>
-                                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '1.2em', fontWeight: 'bold' }}>
+                                <hr className="divider" />
+                                <div className="total-container">
                                     <span>TOTAL:</span>
                                     <span>S/ {totalPedido.toFixed(2)}</span>
                                 </div>
@@ -156,7 +168,7 @@ export default function Delivery() {
                                     {zonaValida === true && <p className="ayuda ok">Llegamos a tu zona de entrega.</p>}
                                     {zonaValida === false && <p className="ayuda">Ingresa una dirección válida para verificar.</p>}
                                     {zonaValida === null && <p className="ayuda">Ingresa tu dirección para verificar si llegamos a tu zona.</p>}
-                                    <img className="mapa" src="/MapaCobertura.png" alt="Mapa de zona de cobertura" style={{ width: '100%' }} />
+                                    <img className="mapa" src="/MapaCobertura.png" alt="Mapa de zona de cobertura" />
                                 </div>
 
                                 <div className="caja">
@@ -200,7 +212,7 @@ export default function Delivery() {
                                             { valor: "Tarjeta", emoji: "💳", desc: "Visa, MasterCard, etc." },
                                         ].map((op) => (
                                             <label key={op.valor} className={`pago ${pago === op.valor ? "seleccionado" : ""}`}>
-                                                <input type="radio" name="pago" checked={pago === op.valor} onChange={() => setPago(op.valor)} />
+                                                <input type="radio" name="pago" disabled={confirmado} checked={pago === op.valor} onChange={() => setPago(op.valor)} />
                                                 <span className="emoji">{op.emoji}</span>
                                                 <strong>{op.valor}</strong>
                                                 <small>{op.desc}</small>
@@ -209,12 +221,14 @@ export default function Delivery() {
                                     </div>
                                 </div>
                                 <div className="caja centrado">
-                                    <button type="button" className="btn-ancho" onClick={confirmarPedido}>
+                                    <button type="button" className="btn-ancho" onClick={confirmarPedido} disabled={confirmado} style={{ background: confirmado ? '#28a745' : '', cursor: confirmado ? 'default' : 'pointer' }}>
                                         {confirmado ? "Pedido confirmado ✓" : "Confirmar pedido"}
                                     </button>
                                     <p className="ayuda">🔒 Tu información está segura</p>
                                 </div>
-                                <button type="button" className="btn-volver" onClick={() => setPagina(1)}>← Volver al pedido</button>
+                                {!confirmado && (
+                                    <button type="button" className="btn-volver" onClick={() => setPagina(1)}>← Volver al pedido</button>
+                                )}
                             </div>
                         )}
                     </section>

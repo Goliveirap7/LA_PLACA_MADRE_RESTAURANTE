@@ -52,6 +52,8 @@
 
 .delivery-titulo-seccion {
     color: #b46805f2; 
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .alerta-error {
@@ -188,7 +190,7 @@ button {
 
 .pago.seleccionado {
   border-color: #b46805f2;
-  background: rgba(230, 184, 0, 0.15); /* Versión suave de #E6B800 */
+  background: rgba(230, 184, 0, 0.15);
 }
 
 .pago input {
@@ -240,7 +242,7 @@ button {
 }
 
 .resumen {
-  background: rgba(230, 184, 0, 0.15); /* Fondo dorado muy suave adaptado */
+  background: rgba(230, 184, 0, 0.15);
   border-radius: 8px;
   padding: 12px 14px;
   margin-top: 14px;
@@ -265,6 +267,71 @@ button {
   color: #777;
   font-size: 13px;
   margin-top: 20px;
+}
+
+/* --- Nuevas clases añadidas para el carrito y su bloqueo --- */
+
+.divider {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #e5e1de;
+}
+
+.lista-carrito {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.item-controles {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-cantidad {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.cantidad-numero {
+  min-width: 15px;
+  text-align: center;
+}
+
+.texto-cantidad-bloqueada {
+  font-size: 1.1em;
+  font-weight: bold;
+  min-width: 45px;
+  text-align: center;
+  color: #888;
+}
+
+.item-titulo {
+  margin-left: 5px;
+}
+
+.item-subtotal {
+  font-weight: 500;
+}
+
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {
